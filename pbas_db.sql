@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 11, 2014 at 03:18 AM
+-- Generation Time: Jul 12, 2014 at 03:19 AM
 -- Server version: 5.1.57
 -- PHP Version: 5.2.17
 
@@ -22,13 +22,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE `acad_act` (
   `User_Id` varchar(30) NOT NULL,
   `Year` varchar(10) NOT NULL,
-  `Gen_Info_AQ` varchar(5) NOT NULL,
-  `Gen_Info_Noc` varchar(30) NOT NULL,
-  `Gen_Info_Place` varchar(30) NOT NULL,
-  `Gen_Info_Duration` varchar(30) NOT NULL,
-  `Gen_Info_SA` varchar(30) NOT NULL,
-  `Gen_Info_Aqyear` varchar(30) NOT NULL,
-  `Gen_Info_ASC` varchar(5) NOT NULL,
+  `Gen_Info_AQ` varchar(100) NOT NULL,
+  `Gen_Info_Noc` varchar(100) NOT NULL,
+  `Gen_Info_Place` varchar(100) NOT NULL,
+  `Gen_Info_Duration` varchar(100) NOT NULL,
+  `Gen_Info_SA` varchar(100) NOT NULL,
+  `Gen_Info_Aqyear` varchar(100) NOT NULL,
+  `Gen_Info_ASC` varchar(50) NOT NULL,
   PRIMARY KEY (`User_Id`,`Year`,`Gen_Info_Noc`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -90,14 +90,14 @@ CREATE TABLE `gen_info` (
   `Gen_Info_Name` varchar(30) NOT NULL,
   `Gen_Info_Fname` varchar(30) NOT NULL,
   `Gen_Info_Mname` varchar(30) NOT NULL,
-  `Gen_Info_Department` varchar(30) NOT NULL,
-  `Gen_Info_CD` varchar(30) NOT NULL,
+  `Gen_Info_Department` varchar(100) NOT NULL,
+  `Gen_Info_CD` varchar(100) NOT NULL,
   `Gen_Info_GP` double NOT NULL,
   `Gen_Info_DLP` date NOT NULL,
-  `Gen_Info_AFC` varchar(30) NOT NULL,
-  `Gen_Info_PA` varchar(30) NOT NULL,
+  `Gen_Info_AFC` varchar(100) NOT NULL,
+  `Gen_Info_PA` varchar(100) NOT NULL,
   `Gen_Info_TNO` double NOT NULL,
-  `Gen_Info_Email` varchar(30) NOT NULL,
+  `Gen_Info_Email` varchar(100) NOT NULL,
   PRIMARY KEY (`User_Id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -703,7 +703,7 @@ INSERT INTO `teach_tlm` VALUES('shaligram.prajapat@gmail.com', '2013-2014', 'pul
 
 CREATE TABLE `userinfo` (
   `User_Id` varchar(30) NOT NULL,
-  `Pwd` varchar(30) NOT NULL,
+  `Pwd` varchar(50) NOT NULL,
   PRIMARY KEY (`User_Id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -731,3 +731,4 @@ INSERT INTO `userinfo` VALUES('PY', 'open to all');
 INSERT INTO `userinfo` VALUES('z', 'z');
 INSERT INTO `userinfo` VALUES('shaligram.prajapat@gmail.com', '123456');
 INSERT INTO `userinfo` VALUES('s', 's');
+INSERT INTO `userinfo` VALUES('pbas', 'pbas');
