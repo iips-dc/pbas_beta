@@ -13,7 +13,7 @@
 <title>Research Publication </title>
 <?php
 	include('cssLinks.php');
-	include('jsLinks.php');
+	//include('jsLinks.php');
 ?>
 <style type="text/css">
     /* Custom Styles */
@@ -34,6 +34,18 @@
         top: 30px; /* Set the top position of pinned element */
     }
 </style>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
+
+}
+</script>
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
@@ -45,7 +57,7 @@
    ?>
 <div class="container">
 	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-	<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
+		<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
 	</div><!--end of box-shadow-->
     <div class="row-fluid">
         <div class="col-md-4" id="myNav">
@@ -90,17 +102,17 @@
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> <br/><br/>
 					   <div id="presentedFields">
 						   <label>Title of the Paper Presented</label>
-							<input class="form-control"t type="text" name="PPC_TPP" required="required"/>  
+							<input class="form-control"t type="text" onkeypress="return onlyAmpersand(event)" name="PPC_TPP" required="required"/>  
 						   <label>Title Conference / Seminar etc.</label> 
-							 <input class="form-control" type="text" name="PPC_TCS" required="required"/>  
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="PPC_TCS" required="required"/>  
 						   <label>Date (s) of the Event </label>
-							 <input class="form-control" type="text" name="PPC_DOE" required="required"/>  
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="PPC_DOE" required="required"/>  
 						   <label>Organized By</label>
-							 <input class="form-control" type="text" name="PPC_Organized" required="required"/>  
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="PPC_Organized" required="required"/>  
 						   <label>Whether International / National / State</label>
-							<input class="form-control" type="text" name="PPC_WINS" required="required"/>   
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="PPC_WINS" required="required"/>   
 						   <label>API Score</label>
-							 <input class="form-control" type="text" name="PPC_API" required="required"/> 
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="PPC_API" required="required"/> 
 						</div><br />
 							<input class="btn btn-md btn-primary" type="submit" value="Save" name="ppc_save" />
 							<select name="pc" onchange="showUser(this.value,this.name)">
@@ -116,14 +128,13 @@
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> 
 					</form>
 				
-        </div><!--End Of col-md-6 --> 
-		
-		
-			
+        </div><!--End Of col-md-6 --> 	
     </div><!--End Of row-fluid Class --> 
 </div>
 <!--End Of container --> 
+</div>
 <?php
+	      include('footer.php');
 	      include('jsLinks.php');
 		  }
 		  else{

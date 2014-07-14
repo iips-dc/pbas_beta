@@ -1,12 +1,13 @@
 <?php 
+	include('DBConnect.php');
     session_start();
 	ob_start();
-	$val=$_GET["val"];
-	$name = $_GET['name'];
+	$val=mysqli_real_escape_string($con,$_GET["val"]);
+	$name = mysqli_real_escape_string($con,$_GET['name']);
 	$userId = $_SESSION['username'];
 	$year=$_SESSION['pbasYear'];
 	#Database Connection
-	include('DBConnect.php');
+	
 ?>
 
 <!-- Script for showing data for "lecture/seminar" -->
@@ -14,7 +15,6 @@
 <?php
 	
 	if($name == 'lect'){
-
 		$sql="SELECT * FROM teach_lstp WHERE User_Id = '$userId' and year='$year' and Teach_LSTP_Course = '".$val."'";
 		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
 		$row = mysqli_fetch_array($result);
@@ -75,10 +75,10 @@
 		
 		
 		if($name == 'desc'){
-			$sql="SELECT * FROM teach_tlm WHERE User_Id = '$userId' and Teach_TLM_SD = '".$val."'";
+			$sql="SELECT * FROM teach_tlm WHERE User_Id = '$userId' and Teach_TLM_SD = '".$val."';";
 			$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
 			$row = mysqli_fetch_array($result);
- 			$description = $row['Teach_TLM_SD'];
+ 			$description = mysqli_real_escape_string($con,stripslashes($row['Teach_TLM_SD']));
 	    	$apiScore = $row['Teach_TLM_API'];
 
 	 ?>

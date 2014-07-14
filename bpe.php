@@ -13,7 +13,7 @@
 <title>Research Publication </title>
 <?php
 	include('cssLinks.php');
-	include('jsLinks.php');
+	//include('jsLinks.php');
 ?>
 <style type="text/css">
     /* Custom Styles */
@@ -34,6 +34,18 @@
         top: 30px; /* Set the top position of pinned element */
     }
 </style>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
+
+}
+</script>
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
@@ -89,18 +101,18 @@
 						<input type="reset" class="btn btn-primary" value="Reset" name="reset" /> <br/><br/>
 					 <div id="bookPublished">
 						<label>Title With Page Numbers</label>
-						  <input class="form-control" type="text" name="BPE_TPN"> 
+						  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="BPE_TPN"> 
 						<label>Type of Book And Authorship</label>
-						  <input class="form-control" type="text" name="BPE_TBA"> 
+						  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="BPE_TBA"> 
 						<label>Publisher And ISSN / ISBN No</label>
-						  <input class="form-control" type="text" name="BPE_PISSN" /> 
+						  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="BPE_PISSN" /> 
 						<label> Whether Peer Reviewed</label>
-						 <input class="form-control" type="text" name="BPE_WPR" /> 
+						 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="BPE_WPR" /> 
 						<label>No. of Co-authors</label>
-						  <input class="form-control" type="text" name="BPE_NOC" /> <br/>
+						  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="BPE_NOC" /> <br/>
 					   <label>Whether you are the main Author</label>
 						 <input type="radio" name="BPE_YN" />Yes <input type="radio" name="BPE_YN"/>No<br /> <br/>
-					   <label>API Score</label>  <input class="form-control" type="text" name="BPE_API" id="bpetooltip" /> 
+					   <label>API Score</label>  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="BPE_API" id="bpetooltip" /> 
 					 </div><br />
 						<input class="btn btn-md btn-primary" type="submit" value="Save" name="bpe_save" />
 						<select name="bp" onChange="showUser(this.value, this.name)">
@@ -125,6 +137,7 @@
 </div>
 <!--End Of container --> 
 <?php
+	      include('footer.php');
 	      include('jsLinks.php');
 		  }
 		  else{
@@ -145,7 +158,7 @@
 		{
 		if (value=="")
 		  {
-		  document.getElementById("apb").innerHTML="";
+		  document.getElementById("bookPublished").innerHTML="";
 		  return;
 		  }
 		if (window.XMLHttpRequest)

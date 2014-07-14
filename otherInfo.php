@@ -87,7 +87,7 @@
 										<?php 
 											include('DBConnect.php');
 											$userId = $_SESSION['username'];
-											$query = mysqli_query($con,"SELECT * from Enclosures WHERE User_Id = '$userId'");
+											$query = mysqli_query($con,"SELECT * from enclosures WHERE User_Id = '$userId'");
 											while($row = mysqli_fetch_assoc($query)){
 										?>		<option><?php echo $row['Enclosure']; ?></option>
 										<?php } ?>

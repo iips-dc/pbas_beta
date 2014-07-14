@@ -4,7 +4,7 @@
 	if(!empty($_POST['username']) and !empty($_POST['password'])){
 		//If the user just tried to log in
 		$user = $_POST['username'];
-		$pass = $_POST['password'];
+		$pass = md5($_POST['password']);
 		include('DBConnect.php');
 		$result = mysqli_query($con,"Select * from userinfo where User_Id ='".$user."' and Pwd = '".$pass."'");
 		$row = mysqli_fetch_array($result);
@@ -30,6 +30,7 @@
 				header('location:index.php');
 			}
 			else{
+				$regPass = md5($regPass);
 				$query = mysqli_query($con, "INSERT INTO userinfo values('$userID','$regPass')") or die("Error : ".mysqli_error()); 
 				$_SESSION['success'] = "<h5 class='alert alert-success' align='center'>Registration Successfull !!</h5>";
 				header('location:index.php');

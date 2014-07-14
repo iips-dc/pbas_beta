@@ -8,7 +8,7 @@ $year = $_SESSION['pbasYear'];
 if(isset($_POST['ppij_save'])){
 	$user = $_SESSION['username'];
 	$year = $_SESSION['pbasYear'];
-	 $PPIJ_TNO = $_POST['PPIJ_TNO'];
+	$PPIJ_TNO = $_POST['PPIJ_TNO'];
 	$PPIJ_Journal = $_POST['PPIJ_Journal'];
 	$PPIJ_ISBN = $_POST['PPIJ_ISBN'];
 	$PPIJ_PR = $_POST['PPIJ_PR'];
@@ -32,7 +32,13 @@ if(isset($_POST['ppij_save'])){
 			}
 		}
  		else{
-
+ 			$PPIJ_TNO = str_replace('"', "“", $PPIJ_TNO);
+			$PPIJ_Journal = str_replace('"', "“", $PPIJ_Journal);
+			$PPIJ_ISBN = str_replace('"', "“", $PPIJ_ISBN);
+			$PPIJ_PR = str_replace('"', "“", $PPIJ_PR);
+			$PPIJ_NCA = str_replace('"', "“", $PPIJ_NCA);
+			$PPIJ_YN = str_replace('"', "“", $PPIJ_YN);
+			$PPIJ_API = str_replace('"', "“", $PPIJ_API);
 		$sql = "Insert into `teach_ppij` (User_Id,year,Teach_PPIJ_Tno,Teach_PPIJ_Journal,Teach_PPIJ_ISBN,Teach_PPIJ_PR,Teach_PPIJ_NCA, Teach_PPIJ_MA,Teach_PPIJ_API) Values('$user','$year','$PPIJ_TNO','$PPIJ_Journal','$PPIJ_ISBN','$PPIJ_PR','$PPIJ_NCA','$PPIJ_YN','$PPIJ_API')";
 	$result = mysqli_query($con,$sql) or die("error : ".mysqli_error($con));
 	if($result){
@@ -90,8 +96,15 @@ if(!empty($_POST['acpb_save'])){
 			}
 		}
  		else{
-	$sql2 = "INSERT into teach_apb (User_Id,Year,Teach_APB_Tno,Teach_APB_BEP,Teach_APB_ISSN,Teach_APB_WPR,Teach_APB_NOC, Teach_APB_MA,Teach_APB_API) Values('$user','$year','$APB_TNO','$APB_BEP','$APB_ISSN','$APB_WPR','$APB_NOC','$ACPB_Yes','$APB_API')";
-	$result2 = mysqli_query($con,$sql2) or die("error : ").mysqli_error($con);
+ 		$APB_TNO = str_replace('"', "“", $APB_TNO);
+		$APB_BEP = str_replace('"', "“", $APB_BEP);
+		$APB_ISSN = str_replace('"', "“", $APB_ISSN);
+		$APB_WPR = str_replace('"', "“", $APB_WPR);
+		$APB_NOC = str_replace('"', "“", $APB_NOC);
+		$ACPB_Yes = str_replace('"', "“", $ACPB_Yes);
+		$APB_API = str_replace('"', "“", $APB_API);
+		$sql2 = "INSERT into teach_apb (User_Id,Year,Teach_APB_Tno,Teach_APB_BEP,Teach_APB_ISSN,Teach_APB_WPR,Teach_APB_NOC, Teach_APB_MA,Teach_APB_API) Values('$user','$year','$APB_TNO','$APB_BEP','$APB_ISSN','$APB_WPR','$APB_NOC','$ACPB_Yes','$APB_API')";
+		$result2 = mysqli_query($con,$sql2) or die("error : ").mysqli_error($con);
 }
 	if($result2){
 		header('Location:apb.php');
@@ -153,6 +166,12 @@ if(!empty($_POST['fpcp_save'])){
 			}
 		}
  		else{
+ 				$FCP_TNO = str_replace('"', "“", $FCP_TNO);
+				$FCP_BEP = str_replace('"', "“", $FCP_BEP);
+				$FCP_ISSN = str_replace('"', "“", $FCP_ISSN);
+				$FCP_NOC = str_replace('"', "“", $FCP_NOC);
+				$FCP_YN = str_replace('"', "“", $FCP_YN);
+				$FCP_API = str_replace('"', "“", $FCP_API);	
 				$sql2 = "INSERT into teach_fcp (User_Id,year,Teach_FCP_TNO,Teach_FCP_BEP,Teach_FCP_ISSN,Teach_FCP_NOC, Teach_FCP_MA,Teach_FCP_API) Values('$user','$year','$FCP_TNO','$FCP_BEP','$FCP_ISSN','$FCP_NOC','$FCP_YN','$FCP_API')";
 				$result2 = mysqli_query($con,$sql2) or die("error : ").mysqli_error($con);
 			
@@ -177,7 +196,7 @@ if(!empty($_POST['fcp_delete'])){
 	$user=$_SESSION['username'];
 	$year=$_SESSION['pbasYear'];
 
-	$sqlfcpdelete="DELETE FROM teach_fcp WHERE User_Id='$user' AND year='$year' AND Teach_FCP_TNO='$FCP_TNO'";
+	$sqlfcpdelete=" DELETE FROM teach_fcp WHERE User_Id = '$user' AND year = '$year' AND Teach_FCP_TNO = '$FCP_TNO' ";
 	$fcpdeleteresult = mysqli_query($con,$sqlfcpdelete);
 		if($fcpdeleteresult){
 			header('location:fcp.php');
@@ -199,7 +218,15 @@ if(!empty($_POST['bpe_save'])){
 	$BPE_YN = $_POST['BPE_YN'];
 	$BPE_API = $_POST['BPE_API'];
 	$year = $_SESSION['pbasYear'];
-			$bpeinsertquery = "Insert into `teach_bpe` (User_Id,Year,Teach_BPE_TPN,Teach_BPE_TBA,Teach_BPE_PISSN,Teach_BPE_WPR,Teach_BPE_NOC,Teach_BPE_YN,Teach_BPE_API) Values('$user','$year','$BPE_TPN','$BPE_TBA','$BPE_PISSN','$BPE_WPR','$BPE_NOC','$BPE_YN','$BPE_API')";
+	$BPE_TPN = str_replace('"', "“", $BPE_TPN);
+	$BPE_TBA = str_replace('"', "“", $BPE_TBA);
+	$BPE_PISSN = str_replace('"', "“", $BPE_PISSN);
+	$BPE_WPR = str_replace('"', "“", $BPE_WPR);
+	$BPE_NOC = str_replace('"', "“", $BPE_NOC);
+	$BPE_YN = str_replace('"', "“", $BPE_YN);
+	$BPE_API = str_replace('"', "“", $BPE_API);
+	
+			$bpeinsertquery = "Insert into teach_bpe (User_Id,Year,Teach_BPE_TPN,Teach_BPE_TBA,Teach_BPE_PISSN,Teach_BPE_WPR,Teach_BPE_NOC,Teach_BPE_YN,Teach_BPE_API) Values('$user','$year','$BPE_TPN','$BPE_TBA','$BPE_PISSN','$BPE_WPR','$BPE_NOC','$BPE_YN','$BPE_API')";
 			$bpeinsertresult = mysqli_query($con,$bpeinsertquery) or die("error : ").mysqli_error($con);
 			if($bpeinsertresult){
 				header('Location:bpe.php');
@@ -262,7 +289,12 @@ if(!empty($_POST['opc_save'])){
 			}
 		}
  		else{
-
+ 		$OPC_Title = str_replace('"', "“", $OPC_Title);
+		$OPC_Agency = str_replace('"', "“", $OPC_Agency);
+		$OPC_Period = str_replace('"', "“", $OPC_Period);
+		$OPC_Gam = str_replace('"', "“", $OPC_Gam);
+		$OPC_API = str_replace('"', "“", $OPC_API);
+	
 		$opcinsertquery = "Insert into teach_opc (user_id,year,Teach_OPC_Title,Teach_OPC_Agency,Teach_OPC_Period,Teach_OPC_Gam,Teach_OPC_API) Values('$user','$year','$OPC_Title','$OPC_Agency','$OPC_Period','$OPC_Gam','$OPC_API')";
 		$opcinsertresult = mysqli_query($con,$opcinsertquery) or die("error : ").mysqli_error($con);
 		if($opcinsertresult){
@@ -324,8 +356,12 @@ if(!empty($_POST['cpc_save'])){
 			}
 		}
  		else{
-
-
+ 			$CPC_Title = str_replace('"', "“", $CPC_Title);
+			$CPC_Agency = str_replace('"', "“", $CPC_Agency);
+			$CPC_Period = str_replace('"', "“", $CPC_Period);
+			$CPC_Gam = str_replace('"', "“", $CPC_Gam);
+			$CPC_WPD = str_replace('"', "“", $CPC_WPD);
+			$CPC_API = str_replace('"', "“", $CPC_API);		
 		$cpcinsertquery = "INSERT into teach_cpc (User_Id,Year,Teach_CPC_Title,Teach_CPC_Agency,Teach_CPC_Period,Teach_CPC_Gam,Teach_CPC_WPD,Teach_CPC_API) Values('$user','$year','$CPC_Title','$CPC_Agency','$CPC_Period','$CPC_Gam','$CPC_WPD','$CPC_API')";
 		$cpcinsertresult = mysqli_query($con,$cpcinsertquery) or die("error : ").mysqli_error();
 
@@ -367,6 +403,8 @@ if(!empty($_POST['rg_save'])){
 	$RG_TS = $_POST['RG_TS'];
 	$RG_DA = $_POST['RG_DA'];
 	$RG_API = $_POST['RG_API'];
+	$user=$_SESSION['username'];
+	$year = $_SESSION['pbasYear'];
 
 	$sql="SELECT * FROM teach_rg WHERE User_Id='$user' and Teach_RG_NE = '$RG_NE' and year='$year'";
 		$result = mysqli_query($con,$sql) or die('Error'.mysqli_error($con));
@@ -384,7 +422,10 @@ if(!empty($_POST['rg_save'])){
 			}
 		}
  		else{
-
+ 			$RG_NE = str_replace('"', "“", $RG_NE);
+			$RG_TS = str_replace('"', "“", $RG_TS);
+			$RG_DA = str_replace('"', "“", $RG_DA);
+			$RG_API = str_replace('"', "“", $RG_API);
 			$rginsertquery = "Insert into `teach_rg` (user_id,year,Teach_RG_NE,Teach_RG_TS,Teach_RG_DA,Teach_RG_API) Values('$user','$year','$RG_NE','$RG_TS','$RG_DA','$RG_API')";
 			$rginsertresult = mysqli_query($con,$rginsertquery) or die("error : ").mysqli_error($con);
 			if($rginsertresult){
@@ -436,7 +477,10 @@ if(!empty($_POST['fdp_save'])){
 			}
 		}
  		else{
-
+ 			$FDP_Programme = str_replace('"', "“", $FDP_Programme);
+ 			$FDP_Duration = str_replace('"', "“", $FDP_Duration);
+ 			$FDP_Organized = str_replace('"', "“", $FDP_Organized);
+ 			$FDP_API = str_replace('"', "“", $FDP_API);
 			$fdpinsertquery = "Insert into `teach_fdp` (User_Id,Year,Teach_FDP_Programme,Teach_FDP_Duration,Teach_FDP_Organized,Teach_FDP_API) Values('$user','$year','$FDP_Programme','$FDP_Duration','$FDP_Organized','$FDP_API')";
 			$fdpinsertresult = mysqli_query($con,$fdpinsertquery) or die("error : ").mysqli_error($con);
 			if($fdpinsertresult){
@@ -494,6 +538,12 @@ if(!empty($_POST['ppc_save'])){
 			}
 		}
  		else{
+ 			$PPC_TPP = str_replace('"', "“", $PPC_TPP);
+			$PPC_TCS = str_replace('"', "“", $PPC_TCS);
+			$PPC_DOE = str_replace('"', "“", $PPC_DOE);
+			$PPC_Organized = str_replace('"', "“", $PPC_Organized);
+			$PPC_WINS = str_replace('"', "“", $PPC_WINS);
+			$PPC_API = str_replace('"', "“", $PPC_API);
 
 			$ppcinsertquery = "Insert into `teach_ppc` (User_Id,Year,Teach_PPC_TPP,Teach_PPC_TCS,Teach_PPC_DOE, Teach_PPC_Organized, Teach_PPC_WINS,Teach_PPC_API) Values('$user','$year','$PPC_TPP','$PPC_TCS','$PPC_DOE','$PPC_Organized','$PPC_WINS','$PPC_API')";
 			$ppcinsertresult = mysqli_query($con,$ppcinsertquery) or die("error : ").mysqli_error($con);
@@ -550,6 +600,12 @@ if(!empty($_POST['ilc_save'])){
 			}
 		}
  		else{
+ 			$ILC_TOL = str_replace('"', "“", $ILC_TOL);
+			$ILC_TCS = str_replace('"', "“", $ILC_TCS);
+			$ILC_DOE = str_replace('"', "“", $ILC_DOE);
+			$ILC_Organized = str_replace('"', "“", $ILC_Organized);
+			$ILC_WINS = str_replace('"', "“", $ILC_WINS);
+			$ILC_API = str_replace('"', "“", $ILC_API);
 
 			$ilcinsertquery = "Insert into `teach_ilc` (User_Id,Year,Teach_ILC_TOL,Teach_ILC_TCS,Teach_ILC_DOE,Teach_ILC_Organized,Teach_ILC_WINS,Teach_ILC_API) Values('$user','$year','$ILC_TOL','$ILC_TCS','$ILC_DOE','$ILC_Organized','$ILC_WINS','$IlC_API')";
 			$ilcinsertresult = mysqli_query($con,$ilcinsertquery) or die("error : ").mysqli_error($con);

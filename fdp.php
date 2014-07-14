@@ -13,7 +13,7 @@
 <title>Research Publication </title>
 <?php
 	include('cssLinks.php');
-	include('jsLinks.php');
+	//include('jsLinks.php');
 ?>
 <style type="text/css">
     /* Custom Styles */
@@ -34,6 +34,18 @@
         top: 30px; /* Set the top position of pinned element */
     }
 </style>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
+
+}
+</script>
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
@@ -74,7 +86,7 @@
 				</div><br>
 				  <form id="trainingForm" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 					  <input  class="btn btn-md btn-primary" type="submit" value="Save" name="fdp_save" />
-							<select name="ppf" onchange="showUser(this.value,this.name)">
+							<select name="ppf" style="width:225px" onchange="showUser(this.value,this.name)">
 								<option>--Title--</option>
 								<?php 
 									include('DBConnect.php');
@@ -88,17 +100,17 @@
 					   <div id="trainingFields">
 
 							<label>Programme </label>
-							 <input class="form-control" type="text" name="FDP_Programme" required="required"/> 
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="FDP_Programme" required="required"/> 
 						   <label> Duration </label>
-							<input class="form-control" type="text" name="FDP_Duration" required="required"/> 
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="FDP_Duration" required="required"/> 
 							<label>Organized By </label>
-							 <input class="form-control" type="text" name="FDP_Organized" required="required"/>  
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="FDP_Organized" required="required"/>  
 							<label>API Score </label>
-							 <input class="form-control" type="text" name="FDP_API" required="required"/> 
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="FDP_API" required="required"/> 
 					   </div>
 						 <br>
 							<input  class="btn btn-md btn-primary" type="submit" value="Save" name="fdp_save" />
-							<select name="ppf" onchange="showUser(this.value,this.name)">
+							<select name="ppf" style="width:225px" onchange="showUser(this.value,this.name)">
 								<option>--Title--</option>
 								<?php 
 									include('DBConnect.php');
@@ -119,6 +131,7 @@
 </div>
 <!--End Of container --> 
 <?php
+	      include('footer.php');
 	      include('jsLinks.php');
 		  }
 		  else{

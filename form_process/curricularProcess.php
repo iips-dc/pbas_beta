@@ -22,6 +22,9 @@
 			}
 		}
  		else{
+ 			$type = str_replace('"', "“", $type);
+			$averageHrs = str_replace('"', "“", $averageHrs);
+	    	$apiScore = str_replace('"', "“", $apiScore);
 			$insertQuery = "Insert Into teach_ecfa values('$user_id','$year','$type','$averageHrs','$apiScore')";
 			$result2 = mysqli_query($con,$insertQuery);
 			if($result2){
@@ -53,14 +56,14 @@
 	
 // Php Script - Updating information for Examination Duties Assigned and Performed
 	if(isset($_POST['contributionSave'])){
-		$user_id = $_SESSION['username'];
-		$type = $_POST['typeOfActivity'];
-		$responsibility = $_POST['responsibility'];
-	    $apiScore = $_POST['contApi'];
-		echo $year=$_SESSION['pbasYear'];
+		 $user_id = $_SESSION['username'];
+		 $type = $_POST['typeOfActivity'];
+		 $responsibility = $_POST['responsibility'];
+	     $apiScore = $_POST['contApi'];
+		 $year=$_SESSION['pbasYear'];
 		//Query for Updating Examination Duties Assigned and Performed
-		$sql1 = "SELECT * FROM teach_clmi where User_Id='$user_id' and year='$year' and Teach_CLMI_TOA='$type'";
-		$result = mysqli_query($con, $sql1);
+		$sql2 = "SELECT * FROM teach_clmi where User_Id='$user_id' and year='$year' and Teach_CLMI_TOA='$type'";
+		$result = mysqli_query($con, $sql2);
 		$row = mysqli_fetch_array($result);
 
 		if(!empty($row['User_Id']) and !empty($row['Teach_CLMI_TOA'])){
@@ -74,7 +77,10 @@
 			}
 		}
  		else{
-			$insertQuery = "Insert Into teach_clmi values('$user_id','$year','$type','$responsibility','$apiScore')";
+ 			$type = str_replace('"', "“", $type);
+		 	$responsibility = str_replace('"', "“", $responsibility);
+	     	$apiScore = str_replace('"', "“", $apiScore);
+			$insertQuery = "INSERT INTO teach_clmi values('$user_id','$year','$type','$responsibility','$apiScore')";
 			$result2 = mysqli_query($con,$insertQuery);
 			if($result2){
 				header('location:clmi.php');
@@ -125,6 +131,9 @@
 			}
 		}
  		else{
+ 			$type = str_replace('"', "“", $type);
+ 			$responsibility = str_replace('"', "“", $responsibility);
+ 			$apiScore = str_replace('"', "“", $apiScore);
 			$insertQuery = "Insert Into teach_pda values('$user_id','$year','$type','$responsibility','$apiScore')";
 			$result2 = mysqli_query($con,$insertQuery);
 			if($result2){

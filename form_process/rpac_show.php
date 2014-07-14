@@ -70,7 +70,7 @@
  		$APB_YN   = $row['Teach_APB_MA'];
 	    $APB_API  = $row['Teach_APB_API'];
 ?>
-								Rajat
+
 								<label>Title With Page Numbers </label>
 								  <input type="text" class="form-control" name="APB_TNO" value="<?php echo $APB_TNO; ?>"/>
 								<label>Book Title, Editor And Publisher </label>

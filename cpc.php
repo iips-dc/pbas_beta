@@ -13,7 +13,7 @@
 <title>Research Publication </title>
 <?php
 	include('cssLinks.php');
-	include('jsLinks.php');
+	//include('jsLinks.php');
 ?>
 <style type="text/css">
     /* Custom Styles */
@@ -34,6 +34,18 @@
         top: 30px; /* Set the top position of pinned element */
     }
 </style>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
+
+}
+</script>
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
@@ -88,17 +100,17 @@
 						<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> <br/><br/>
 					   <div id="completedFields">
 						 <label>Title</label>
-						   <input class="form-control" type="text" name="CPC_Title" required="required"/> 
+						   <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="CPC_Title" required="required"/> 
 						 <label>Agency</label>
-						   <input class="form-control" type="text" name="CPC_Agency" required="required"/> 
+						   <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="CPC_Agency" required="required"/> 
 						 <label>Period</label>
-						  <input class="form-control" type="text" name="CPC_Period" required="required"/> 
+						  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="CPC_Period" required="required"/> 
 						 <label>Grant / Amount Mobilized (Rs. Lakh)</label>
-						   <input class="form-control" type="text" name="CPC_GAM" required="required"/> 
+						   <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="CPC_GAM" required="required"/> 
 						 <label>Whether policy document / Patent as outcome</label>
-						   <input class="form-control" type="text" name="CPC_WPD" required="required"/> 
+						   <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="CPC_WPD" required="required"/> 
 						 <label>API Score</label>
-							 <input class="form-control" type="text" name="CPC_API" required="required"/>
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="CPC_API" required="required"/>
 					   </div> 
 						 <br />
 						<input class="btn btn-md btn-primary" type="submit" value="Save" name="cpc_save" />
@@ -123,6 +135,7 @@
 </div>
 <!--End Of container --> 
 <?php
+	      include('footer.php');
 	      include('jsLinks.php');
 		  }
 		  else{

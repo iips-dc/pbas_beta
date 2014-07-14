@@ -15,7 +15,18 @@
   		include('cssLinks.php');
   ?>
 </head>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
 
+}
+</script>
 <body>
 	<?php
 		if(isset($_SESSION['username'])){
@@ -24,10 +35,12 @@
 			include('header.php');
      ?>
 	 	<div class="container" style="background-color:#FFFFFF;">
-	 	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-	 		<h4 align="center">Teaching Learning And Evaluation Related Activities</h4>
-	 	</div><!--end of box-shadow div-->
-			 <div class="col-md-4" id="myNav">
+	 		
+	 		<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
+				<center><h4><b>Teaching Learning And Evaluation Related Activities</b></h4></center>
+			</div><!--end of box-shadow div-->
+			 
+			<div class="col-md-4" id="myNav">
         <br><br>
         		<div class="panel panel-primary" >
 			 		
@@ -39,7 +52,7 @@
 				 	</ul>
 			 	</div>
 			 </div><!--end of col-md-4-->
-			 	
+			 <br>	
 	   		 	<div class="col-md-8">		
 				  <br>
 				  		<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
@@ -51,13 +64,13 @@
 			   		    <form role="form" method="post" name="innovation" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" id="innovationForm">
 			   			    <div class="form-group">
 			   			    <input class="btn btn-primary" type="submit" value="Save" name="innovationSave" />
-									<select name="desc" onChange="showUser(this.value, this.name)">
+									<select name="desc" style="width: 150px" onChange="showUser(this.value, this.name)">
 										<option>--Description--</option>
 										<?php 
 											include('DBConnect.php');
 											$user_id = $_SESSION['username'];
 											$year=$_SESSION['pbasYear'];
-											$query = mysqli_query($con,"SELECT * from Teach_TLM WHERE User_Id='$user_id' and year='$year'");
+											$query = mysqli_query($con,"SELECT * from teach_tlm WHERE User_Id='$user_id' and year='$year'");
 											while($row = mysqli_fetch_assoc($query)){
 										?>		<option><?php echo $row['Teach_TLM_SD']; ?></option>
 										<?php } ?>
@@ -66,19 +79,19 @@
 									<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 								 <div id="inno"><br />
 		          					<label>Short Description </label> 
-				    					<input type="text" class="form-control required" name="description" title="Please Enter Description" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="description" title="Please Enter Description" required="required"/>
                   					<br><label>API Score</label>
-				    					<input type="text" class="form-control required" name="api" title="Please Enter API Score" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="api" title="Please Enter API Score" required="required"/>
 			 					 </div>
 			 				</div>
 							       <input class="btn btn-primary" type="submit" value="Save" name="innovationSave" />
-									<select name="desc" onChange="showUser(this.value, this.name)">
+									<select name="desc" style="width: 150px" onChange="showUser(this.value, this.name)">
 										<option>--Description--</option>
 										<?php 
 											include('DBConnect.php');
 											$user_id = $_SESSION['username'];
 											$year=$_SESSION['pbasYear'];
-											$query = mysqli_query($con,"SELECT * from Teach_TLM WHERE User_Id='$user_id' and year='$year'");
+											$query = mysqli_query($con,"SELECT * from teach_tlm WHERE User_Id='$user_id' and year='$year'");
 											while($row = mysqli_fetch_assoc($query)){
 										?>		<option><?php echo $row['Teach_TLM_SD']; ?></option>
 										<?php } ?>

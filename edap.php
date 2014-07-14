@@ -15,7 +15,18 @@
   		include('cssLinks.php');
   ?>
 </head>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
 
+}
+</script>
 <body>
 	<?php
 		if(isset($_SESSION['username'])){
@@ -24,8 +35,8 @@
      ?>
 	 	<div class="container" style="background-color:#FFFFFF;">
 	 	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-	 		<h4 align="center">Teaching Learning And Evaluation Related Activities</h4>
-	 	</div><!--end of box-shadow div-->
+			<center><h4><b>Teaching Learning And Evaluation Related Activities</b></h4></center>
+		</div><!--end of box-shadow div-->
 			  <div class="col-md-4" id="myNav">
         		<br><br>
         		<div class="panel panel-primary" >
@@ -38,6 +49,7 @@
 				 	</ul>	
 			 	</div>
 			 </div>
+			 <br>
 			 	<div class="col-md-8">		
 				  <br>
 				  		<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
@@ -48,13 +60,13 @@
 			   					<form role="form" name="duties" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="dutiesForm">
 			   					<div class="form-group">
 			   					<input class="btn btn-primary" type="submit" value="Save" name="dutiesSave" />
-									<select name="dut" onChange="showUser(this.value, this.name)">
+									<select name="dut" style="width: 100px" onChange="showUser(this.value, this.name)">
 										<option>--Duties--</option>
 										<?php 
 											include('DBConnect.php');
 											$user_id = $_SESSION['username'];
 											$year=$_SESSION['pbasYear'];
-											$query = mysqli_query($con,"SELECT * from Teach_EDAP WHERE User_Id='$user_id' and year='$year'");
+											$query = mysqli_query($con,"SELECT * from teach_edap WHERE User_Id='$user_id' and year='$year'");
 											while($row = mysqli_fetch_assoc($query)){
 										?>		<option><?php echo $row['Teach_EDAP_TED']; ?></option>
 										<?php } ?>
@@ -63,23 +75,23 @@
 									<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 								  <div id="duty">
 		          					<label>Type of Examination Duties</label> 
-				    					<input type="text" class="form-control required" name="typeDuties" title="Please Enter The Type" required="required">
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="typeDuties" title="Please Enter The Type" required="required">
                   					<br><label>Duties Assigned</label>
-				    					<input type="text" class="form-control required" name="assignedDuties" title="Please Enter Assigned Duties" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="assignedDuties" title="Please Enter Assigned Duties" required="required"/>
 									<br><label>Extent to which carried out(%)</label> 
-				    					<input type="text" class="form-control required" name="extent" title="Please Enter % Value" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="extent" title="Please Enter % Value" required="required"/>
                   					<br><label>API Score</label>
-				    					<input type="text" class="form-control required" name="api" title="Please Enter API Score" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="api" title="Please Enter API Score" required="required"/>
 			 					 </div>
 			 				  </div>
 							       <input class="btn btn-primary" type="submit" value="Save" name="dutiesSave" />
-									<select name="dut" onChange="showUser(this.value, this.name)">
+									<select name="dut" style="width: 100px" onChange="showUser(this.value, this.name)">
 										<option>--Duties--</option>
 										<?php 
 											include('DBConnect.php');
 											$user_id = $_SESSION['username'];
 											$year=$_SESSION['pbasYear'];
-											$query = mysqli_query($con,"SELECT * from Teach_EDAP WHERE User_Id='$user_id' and year='$year'");
+											$query = mysqli_query($con,"SELECT * from teach_edap WHERE User_Id='$user_id' and year='$year'");
 											while($row = mysqli_fetch_assoc($query)){
 										?>		<option><?php echo $row['Teach_EDAP_TED']; ?></option>
 										<?php } ?>

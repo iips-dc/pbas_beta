@@ -13,7 +13,7 @@
 <title>Research Publication </title>
 <?php
 	include('cssLinks.php');
-	include('jsLinks.php');
+	//include('jsLinks.php');
 ?>
 <style type="text/css">
     /* Custom Styles */
@@ -34,6 +34,18 @@
         top: 30px; /* Set the top position of pinned element */
     }
 </style>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
+
+}
+</script>
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
@@ -51,15 +63,14 @@
         <br><br>
         <div class="panel panel-primary" >
             <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
-            <li><a href="ppij.php">Published Papers in Journals<div class="pull-right"><i class="icon-chevron-right" ></i></div></a> </li>
-                
+            <li><a href="ppij.php">Published Papers in Journals<div class="pull-right"><i class="icon-chevron-right" ></i></div></a> </li>       
             <li><a href="apb.php">Articles/ Chapters published in Books <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
             <li><a href="fcp.php">Full papers in Conference Proceedings <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
             <li><a href="bpe.php">Books published as single author or as editor<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
             <li><a href="opc.php">Ongoing Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
 			<li><a href="cpc.php">Completed Projects/ Consultancies<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
-				<li class="active"><a href="rg.php">Research Guidance<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
-				<li><a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
+			<li class="active"><a href="rg.php">Research Guidance<div class="pull-right"><i class="icon-chevron-right" ></i></div> </a></li>
+			<li><a href="fdp.php">Training Courses, Teaching-Learning-Evaluation Technology, Faculty Development Programmes<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
 			<li><a href="ppc.php">Papers presented in Conferences, Seminars, Workshops, Symposia<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
 			<li><a href="ilc.php"> Invited Lectures and Chairmanship at National or International Conference/ Seminar<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
             </ul>
@@ -89,13 +100,13 @@
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="guidanceReset" /> <br/><br/> 
 					   <div id="GuidanceFields">
 						   <label>Number Enrolled</label>
-							<input class="form-control" type="text" name="RG_NE" required="required"/> 
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="RG_NE" required="required"/> 
 						   <label>Thesis Submitted</label>
-							<input class="form-control" type="text" name="RG_TS" required="required"/> 
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="RG_TS" required="required"/> 
 						   <label>Degree Awarded</label>  
-							 <input class="form-control" type="text" name="RG_DA" required="required"/>  
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="RG_DA" required="required"/>  
 						  <label>API Score </label> 
-							 <input class="form-control" type="text" name="RG_API" required="required"/>
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="RG_API" required="required"/>
 					  </div> 
 						 <br />
 							<input class="btn btn-md btn-primary" type="submit" value="Save" name="rg_save" />
@@ -120,6 +131,7 @@
 </div>
 <!--End Of container --> 
 <?php
+	      include('footer.php');
 	      include('jsLinks.php');
 		  }
 		  else{

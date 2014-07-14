@@ -15,7 +15,18 @@
   		include('cssLinks.php');
   ?>
 </head>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
 
+}
+</script>
 <body>
 	<?php
 		if(isset($_SESSION['username'])){
@@ -54,13 +65,13 @@
 			   			<form role="form" name="lectures" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="lectureForm">
 			   			
 			   				<input class="btn btn-primary" type="submit" value="Save" name="lectSave" />
-									<select name="lect" onChange="showUser(this.value, this.name)">
+									<select name="lect" style="width: 220px" onChange="showUser(this.value, this.name)">
 										<option>--Title--</option>
 										<?php 
 											include('DBConnect.php');
 											$user_id = $_SESSION['username'];
 											echo $year=$_SESSION['pbasYear'];
-											$query = mysqli_query($con,"SELECT * from Teach_LSTP WHERE User_Id='$user_id' and Year='$year'");
+											$query = mysqli_query($con,"SELECT * from teach_lstp WHERE User_Id='$user_id' and Year='$year'");
 											while($row = mysqli_fetch_assoc($query)){
 										?>		<option><?php echo $row['Teach_LSTP_Course']; ?></option>
 										<?php } ?>
@@ -72,33 +83,33 @@
 							<div id="lect">
 								
 		          						<label>Course / Paper </label>
-				    					<input type="text" class="form-control required" name="course" title="Please Enter Course Name" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="course" title="Please Enter Course Name" required="required"/>
                   					<br /><label>Level</label>
-				    					<input type="text" class="form-control required" name="level" title="Please Enter The Level" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="level" title="Please Enter The Level" required="required"/>
 		          					<br /><label>Mode Of Teaching</label>
-				    					<input type="text" class="form-control required" name="teachingModes" title="Please Enter Teaching Mode" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="teachingModes" title="Please Enter Teaching Mode" required="required"/>
 		   		  					<br /><label> No. of Classes/per Week Allocated</label>
-				    					<input type="text" class="form-control required" name="classAllocated" title="Please Enter No. Of Class Allocated" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="classAllocated" title="Please Enter No. Of Class Allocated" required="required"/>
 		      	  					<br /><label>Total Number of Classes Conducted</label>
-				    					<input type="text" class="form-control required" name="classConducted"  title="Please Enter Total No. of Conducted Classes" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="classConducted"  title="Please Enter Total No. of Conducted Classes" required="required"/>
 				  					<br /><label>Practicals</label> 
-				    					<input type="text" class="form-control required" name="practicals" title="Please Enter Practicles" required="required">
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="practicals" title="Please Enter Practicles" required="required">
                   					<br /><label>% of Classes Taken AS Per Documented Record</label>
-				    					<input type="text" class="form-control required" name="classTakenRecord" title="Please Enter the % value" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="classTakenRecord" title="Please Enter the % value" required="required"/>
 		          					<br /><label>Classes Taken (max 50 for 100% Performance and Proportionate Score upto 80% Performance, below which no Score may be given)</label>
-				    					<input type="text" class="form-control required" name="classTaken" title="Please Enter Classes Taken" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="classTaken" title="Please Enter Classes Taken" required="required"/>
 		   		 					<br /><label>Teaching Load in Excess of UGC norm(API Score)</label>
-				    					<input type="text" class="form-control required" name="teachingLoads" id="lstptooltip" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="teachingLoads" id="lstptooltip" required="required"/>
 			 					 </div><!--End of lect id -->
 			 				
 							       <br><input class="btn btn-primary" type="submit" value="Save" name="lectSave" />
-									<select name="lect" onChange="showUser(this.value, this.name)">
+									<select name="lect" style="width: 220px" onChange="showUser(this.value, this.name)">
 										<option>--Title--</option>
 										<?php 
 											include('DBConnect.php');
 											$user_id = $_SESSION['username'];
 											echo $year=$_SESSION['pbasYear'];
-											$query = mysqli_query($con,"SELECT * from Teach_LSTP WHERE User_Id='$user_id' and Year='$year'");
+											$query = mysqli_query($con,"SELECT * from teach_lstp WHERE User_Id='$user_id' and Year='$year'");
 											while($row = mysqli_fetch_assoc($query)){
 										?>		<option><?php echo $row['Teach_LSTP_Course']; ?></option>
 										<?php } ?>

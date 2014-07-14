@@ -13,7 +13,7 @@
 <title>Research Publication </title>
 <?php
 	include('cssLinks.php');
-	include('jsLinks.php');
+	//include('jsLinks.php');
 ?>
 <style type="text/css">
     /* Custom Styles */
@@ -34,6 +34,18 @@
         top: 30px; /* Set the top position of pinned element */
     }
 </style>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
+
+}
+</script>
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
@@ -42,13 +54,13 @@
 	include('header.php');
 ?>
      <div class="container">
-	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-	<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
-	</div><!--end of box-shadow-->
-    <div class="row-fluid">
-        <div class="col-md-4" id="myNav">
-        <br><br>
-        <div class="panel panel-primary" >
+		<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
+		<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
+		</div><!--end of box-shadow-->
+    	<div class="row-fluid">
+           <div class="col-md-4" id="myNav">
+        	<br><br>
+        	<div class="panel panel-primary" >
             <ul class="nav nav-tabs nav-stacked"  data-offset-top="190" style="width:100%;">
                 <li class="active"><a href="ppij.php">Published Papers in Journals<div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
                <li> <a href="apb.php">Articles/ Chapters published in Books <div class="pull-right"><i class="icon-chevron-right" ></i></div></a></li>
@@ -90,19 +102,19 @@
 						<div class="form-group">
 							<div id="ppij">
 								<label>Title With Page Numbers</label> 
-								  <input type="text" class="form-control required" name="PPIJ_TNO" autofocus required="required"/>
+								  <input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="PPIJ_TNO" autofocus required="required"/>
 								<label>Journal</label>
-								  <input type="text" class="form-control required" name="PPIJ_Journal" required="required"/>
+								  <input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="PPIJ_Journal" required="required"/>
 								<label>ISSN / ISBN No. </label>
-								  <input type="text" class="form-control required" name="PPIJ_ISBN" required="required"/>
+								  <input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="PPIJ_ISBN" required="required"/>
 								<label> Whether peer reviewed? Impact factor, if any</label>
-								  <input type="text" class="form-control required" name="PPIJ_PR" required="required"/>
+								  <input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="PPIJ_PR" required="required"/>
 								<label>No. of Co-authors</label>
-								  <input type="text" class="form-control required" name="PPIJ_NCA" required="required"/>
+								  <input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="PPIJ_NCA" required="required"/>
 								<br/><label>Whether you are the main Author</label>
-								  <input type="radio" value="Yes" name="PPIJ_YN" required="required">Yes <input type="radio" value="No" name="PPIJ_YN">NO<br />
+								  <input type="radio" value="Yes" name="PPIJ_YN" autofocus required="required">Yes <input type="radio" value="No" name="PPIJ_YN">NO<br />
 								<br/><label>API Score</label>
-								  <input type="text" class="form-control required" name="PPIJ_API" required="required"/><br/>
+								  <input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="PPIJ_API" required="required"/><br/>
 							</div>
 						
 						<input class="btn btn-primary" type="submit" value="Save" name="ppij_save" />
@@ -125,15 +137,12 @@
 		
     </div><!--End Of row-fluid Class --> 
 </div>
-</div>
-<!--End Of container --> 
-<?php
+</div><!--End Of container -->
+</div> 
+	<?php
+	      include('footer.php');
 	      include('jsLinks.php');
-		  }
-		  else{
-		     header('location:index.php');
-	      }
-     ?>
+	?>
 
 	 <!--JavaScript code for dynamically showing records using AJAX-->
 	 <script>
@@ -168,5 +177,11 @@
 		xmlhttp.send();
 		}
 	</script>
+	<?php
+			}
+	     else{
+		    header('location:index.php');
+	       }
+	?>
 </body>
 </html>                                		

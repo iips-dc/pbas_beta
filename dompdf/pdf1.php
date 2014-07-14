@@ -13,7 +13,7 @@ $sqlgen="SELECT * from gen_info where user_id='$user'";
                 $name=$genrow['Gen_Info_Name'];
                 $fname=$genrow['Gen_Info_Fname'];
                 $mname=$genrow['Gen_Info_Mname'];
-               $dept=$genrow['Gen_Info_Department'];
+                $dept=$genrow['Gen_Info_Department'];
                 $cd=$genrow['Gen_Info_CD'];
                 $gp=$genrow['Gen_Info_GP'];
                 $dlp=$genrow['Gen_Info_DLP'];
@@ -144,23 +144,23 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
 //Calculation of Summary of API.
 
 
-            $get1 = mysqli_query($con, "select sum(Teach_LSTP_CTAPI) as value_sum  from Teach_LSTP where user_id='$user' and year='$year'");
+            $get1 = mysqli_query($con, "select sum(Teach_LSTP_CTAPI) as value_sum  from teach_lstp where user_id='$user' and year='$year'");
                   $row1 = mysqli_fetch_assoc($get1); 
                   $lstp1 = $row1['value_sum'];
 
-                  $get2 = mysqli_query($con, "select sum(Teach_LSTP_TLAPI) as value_sum  from Teach_LSTP where user_id='$user' and year='$year'");
+                  $get2 = mysqli_query($con, "select sum(Teach_LSTP_TLAPI) as value_sum  from teach_lstp where user_id='$user' and year='$year'");
                   $row2 = mysqli_fetch_assoc($get2); 
                   $lstp2 = $row2['value_sum'];
                   
                   $lstp=$lstp1+$lstp2;
                   
 
-                  $get3 = mysqli_query($con, "select sum(Teach_TLM_API) as value_sum  from Teach_TLM where user_id='$user' and year='$year'");
+                  $get3 = mysqli_query($con, "select sum(Teach_TLM_API) as value_sum  from teach_tlm where user_id='$user' and year='$year'");
                   $row3 = mysqli_fetch_assoc($get3); 
                   $tlm = $row3['value_sum'];
                   
 
-                  $get4 = mysqli_query($con, "select sum(Teach_EDAP_API) as value_sum  from Teach_EDAP where user_id='$user' and year='$year'");
+                  $get4 = mysqli_query($con, "select sum(Teach_EDAP_API) as value_sum  from teach_edap where user_id='$user' and year='$year'");
                   $row4 = mysqli_fetch_assoc($get4); 
                   $edap = $row4['value_sum'];
                   
@@ -168,15 +168,15 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
                   $teachinglearning=$lstp+$tlm+$edap;
                   
                   
-            $get5 = mysqli_query($con, "select sum(Teach_ECFA_API) as value_sum  from Teach_ECFA where user_id='$user' and year='$year'");
+            $get5 = mysqli_query($con, "select sum(Teach_ECFA_API) as value_sum  from teach_ecfa where user_id='$user' and year='$year'");
             $row5 = mysqli_fetch_assoc($get5); 
             $ecfa = $row5['value_sum'];
 
-            $get6 = mysqli_query($con, "select sum(Teach_CLMI_API) as value_sum  from Teach_CLMI where user_id='$user' and year='$year'");
+            $get6 = mysqli_query($con, "select sum(Teach_CLMI_API) as value_sum  from teach_clmi where user_id='$user' and year='$year'");
             $row6 = mysqli_fetch_assoc($get6); 
             $clmi = $row6['value_sum'];
 
-            $get7 = mysqli_query($con, "select sum(Teach_PDA_API) as value_sum  from Teach_PDA where user_id='$user' and year='$year'");
+            $get7 = mysqli_query($con, "select sum(Teach_PDA_API) as value_sum  from teach_pda where user_id='$user' and year='$year'");
             $row7 = mysqli_fetch_assoc($get7); 
             $pda = $row7['value_sum'];
 
@@ -184,43 +184,43 @@ $sqlilc="SELECT * from teach_ilc where user_id='$user' and year='$year'";
             
         $sum=$teachinglearning+$CoCurricular;
         
-        $get8 = mysqli_query($con, "select sum(Teach_PPIJ_API) as value_sum  from Teach_PPIJ where user_id='$user' and year='$year'");
+        $get8 = mysqli_query($con, "select sum(Teach_PPIJ_API) as value_sum  from teach_ppij where user_id='$user' and year='$year'");
         $row8 = mysqli_fetch_assoc($get8); 
         $ppij = $row8['value_sum']; 
 
-        $get9 = mysqli_query($con, "select sum(Teach_APB_API) as value_sum  from Teach_APB where user_id='$user' and year='$year'");
+        $get9 = mysqli_query($con, "select sum(Teach_APB_API) as value_sum  from teach_apb where user_id='$user' and year='$year'");
         $row9 = mysqli_fetch_assoc($get9); 
         $apb = $row9['value_sum'];  
 
-        $get10 = mysqli_query($con, "select sum(Teach_FCP_API) as value_sum  from Teach_FCP where user_id='$user' and year='$year'");
+        $get10 = mysqli_query($con, "select sum(Teach_FCP_API) as value_sum  from teach_fcp where user_id='$user' and year='$year'");
         $row10 = mysqli_fetch_assoc($get10); 
         $fcp = $row10['value_sum']; 
 
-        $get11 = mysqli_query($con, "select sum(Teach_BPE_API) as value_sum  from Teach_BPE where user_id='$user' and year='$year'");
+        $get11 = mysqli_query($con, "select sum(Teach_BPE_API) as value_sum  from teach_bpe where user_id='$user' and year='$year'");
         $row11 = mysqli_fetch_assoc($get11); 
         $bpe= $row11['value_sum'];  
 
-        $get12 = mysqli_query($con, "select sum(Teach_OPC_API) as value_sum  from Teach_OPC where user_id='$user' and year='$year'");
+        $get12 = mysqli_query($con, "select sum(Teach_OPC_API) as value_sum  from teach_opc where user_id='$user' and year='$year'");
         $row12 = mysqli_fetch_assoc($get12); 
         $opc = $row12['value_sum']; 
 
-        $get13 = mysqli_query($con, "select sum(Teach_CPC_API) as value_sum  from Teach_CPC where user_id='$user' and year='$year'");
+        $get13 = mysqli_query($con, "select sum(Teach_CPC_API) as value_sum  from teach_cpc where user_id='$user' and year='$year'");
         $row13 = mysqli_fetch_assoc($get13); 
         $cpc = $row13['value_sum']; 
 
-        $get14 = mysqli_query($con, "select sum(Teach_RG_API) as value_sum  from Teach_RG where user_id='$user' and year='$year'");
+        $get14 = mysqli_query($con, "select sum(Teach_RG_API) as value_sum  from teach_rg where user_id='$user' and year='$year'");
         $row14 = mysqli_fetch_assoc($get14); 
         $rg = $row14['value_sum'];  
 
-        $get15 = mysqli_query($con, "select sum(Teach_FDP_API) as value_sum  from Teach_FDP where user_id='$user' and year='$year'");
+        $get15 = mysqli_query($con, "select sum(Teach_FDP_API) as value_sum  from teach_fdp where user_id='$user' and year='$year'");
         $row15 = mysqli_fetch_assoc($get15); 
         $fdp = $row15['value_sum']; 
 
-        $get16 = mysqli_query($con, "select sum(Teach_PPC_API) as value_sum  from Teach_PPC where user_id='$user' and year='$year'");
+        $get16 = mysqli_query($con, "select sum(Teach_PPC_API) as value_sum  from teach_ppc where user_id='$user' and year='$year'");
         $row16 = mysqli_fetch_assoc($get16); 
         $ppc = $row16['value_sum']; 
 
-        $get17 = mysqli_query($con, "select sum(Teach_ILC_API) as value_sum  from Teach_ILC where user_id='$user' and year='$year'");
+        $get17 = mysqli_query($con, "select sum(Teach_ILC_API) as value_sum  from teach_ilc where user_id='$user' and year='$year'");
         $row17 = mysqli_fetch_assoc($get17); 
         $ilc = $row17['value_sum']; 
 

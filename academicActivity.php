@@ -67,7 +67,7 @@ document.getElementById('nametxt').disabled='Click on the Yes above';
 								<?php } ?>
 							</select>
 							<button class="btn btn-primary icon-trash" type="submit" name="activityDelete"> Delete</button>
-							<button type="reset" class="btn btn-primary" value="Reset" name="reset" >Reset</button>
+							<button type="reset" class="btn btn-primary icon-reset" value="Reset" name="reset" >Reset</button>
 						   <div id="academic">
 		          			
 							<label>Academic Staff College Orientation / Refresher
@@ -104,7 +104,7 @@ Course Attended During The Year : </label>
 								<?php } ?>
 							</select>
 							<button class="btn btn-primary icon-trash" type="submit" name="activityDelete"> Delete</button>
-							<button type="reset" class="btn btn-primary" value="Reset" name="reset" >Reset</button>
+							<button type="reset" class="btn btn-primary icon-reset" value="Reset" name="reset" >Reset</button>
 			  			</div>
 			  		</form>
 				 </div><!--End of col-sm6 class -->

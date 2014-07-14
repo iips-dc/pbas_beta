@@ -15,7 +15,18 @@
   		include('cssLinks.php');
   ?>
 </head>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
 
+}
+</script>
 <body>
 	<?php
 		if(isset($_SESSION['username']) and $_SESSION['pbasYear']){
@@ -37,7 +48,7 @@
 	   			 	<li><a href="pda.php">Professional Development Activities<div class="pull-right"><i class="icon-chevron-right" ></i></div></a>	</li>
 			 	</ul>
 			 	</div><!--end of panel-->
-				</div>
+			</div>
 				
 		  		<div class="col-sm-8">
 		  			<div class="panel panel-primary" style="padding:3px 3px 3px 3px;">
@@ -47,7 +58,7 @@
 			   					<form role="form" name="curricular" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="curricularForm">
 
 			   					<input class="btn btn-primary" type="submit" value="Save" name="curricularSave" />
-									<select name="curr" onChange="showUser(this.value, this.name)">
+									<select name="curr" style="width:225px" onChange="showUser(this.value, this.name)">
 										<option>--Activity--</option>
 										<?php 
 											include('DBConnect.php');
@@ -64,15 +75,15 @@
 			   					 <div class="form-group">
 								   <div id="curr"><br/>
 		          					 <label>Type of Activity</label> 
-				    					<input type="text" class="form-control required" name="typeOfActivity" title="Please Enter The Type of Activity" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="typeOfActivity" title="Please Enter The Type of Activity" required="required"/>
                   					<br><label>Average Hrs/Week</label>
-				    					<input type="text" class="form-control required" name="average" title="Please Enter Average Hrs/Week" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="average" title="Please Enter Average Hrs/Week" required="required"/>
 		          					<br><label>API Score</label>
-				    					<input type="text" class="form-control required" name="api" title="Please Enter API Score" required="required" /><br>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="api" title="Please Enter API Score" required="required" /><br>
 			 					  </div><!--End Of curr id for Ajax -->
 			 				    </div>
 							   <input class="btn btn-primary" type="submit" value="Save" name="curricularSave" />
-									<select name="curr" onChange="showUser(this.value, this.name)">
+									<select name="curr" style="width:225px" onChange="showUser(this.value, this.name)">
 										<option>--Activity--</option>
 										<?php 
 											include('DBConnect.php');

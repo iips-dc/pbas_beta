@@ -15,7 +15,18 @@
   		include('cssLinks.php');
   ?>
 </head>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
 
+}
+</script>
 <body>
 	<?php
 		if(isset($_SESSION['username']) and $_SESSION['pbasYear']){
@@ -24,8 +35,8 @@
      ?>
 	 	<div class="container" style="background-color:#FFFFFF;">
 	 		<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-	 		<h4 align="center">Teaching Learning and Evaluation Related Activities</h4><br>
-             </div>
+				<center><h4><b>Teaching Learning And Evaluation Related Activities</b></h4></center>
+			</div>
 	 		<div class="col-md-4" id="myNav">
         <br><br>
         <div class="panel panel-primary" >
@@ -51,13 +62,13 @@
 			   					<form role="form" name="resources" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="resourceForm">
 			   					<div class="form-group">
 			   					<input class="btn btn-primary" type="submit" value="Save" name="resourceSave" />
-									<select name="course" onChange="showUser(this.value, this.name)">
+									<select name="course" style="width: 220px" onChange="showUser(this.value, this.name)">
 										<option>--Course--</option>
 										<?php 
 											include('DBConnect.php');
 											$user_id = $_SESSION['username'];
 											$year=$_SESSION['pbasYear'];
-											$query = mysqli_query($con,"SELECT * from Teach_RIMC WHERE User_Id='$user_id' and year='$year'");
+											$query = mysqli_query($con,"SELECT * from teach_rimc WHERE User_Id='$user_id' and year='$year'");
 											while($row = mysqli_fetch_assoc($query)){
 										?>		<option><?php echo $row['Teach_RIMC_Course']; ?></option>
 										<?php } ?>
@@ -66,25 +77,25 @@
 									<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 								   <div id="res"><br />
 		          					<label>Course / Paper</label>
-				    					<input type="text" class="form-control required" name="readingCourse" title="Please Enter Course Name" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="readingCourse" title="Please Enter Course Name" required="required"/>
                   					 <br><label>Consulted</label>
-				    					<input type="text" class="form-control required" name="consulted" title="Please Enter value" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="consulted" title="Please Enter value" required="required"/>
 		          					 <br><label>Prescribed</label>
-				    					<input type="text" class="form-control required" name="prescribed" title="Please Fill this information" required="required"/>
+				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="prescribed" title="Please Fill this information" required="required"/>
 		   		  					 <br><label>Additional Resources Provided : </label>
 				    					Yes<input type="radio" name="addiResources" onclick="document.getElementById('disappear').disabled = false;" value="Yes"/>
 										No<input type="radio" name="addiResources" onclick="document.getElementById('disappear').disabled = true;" value="No"/>	
-									  <input type="text" class="form-control required" name="resrc" title="Please Fill this information" id="disappear" required="required"/>  					
+									  <input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="resrc" title="Please Fill this information" id="disappear" required="required"/>  					
 			 					 </div><!--End if id res for Ajax -->
 			 				  </div>
 							<input class="btn btn-primary" type="submit" value="Save" name="resourceSave" />
-									<select name="course" onChange="showUser(this.value, this.name)">
+									<select name="course" style="width: 220px" onChange="showUser(this.value, this.name)">
 										<option>--Course--</option>
 										<?php 
 											include('DBConnect.php');
 											$user_id = $_SESSION['username'];
 											$year=$_SESSION['pbasYear'];
-											$query = mysqli_query($con,"SELECT * from Teach_RIMC WHERE User_Id='$user_id' and year='$year'");
+											$query = mysqli_query($con,"SELECT * from teach_rimc WHERE User_Id='$user_id' and year='$year'");
 											while($row = mysqli_fetch_assoc($query)){
 										?>		<option><?php echo $row['Teach_RIMC_Course']; ?></option>
 										<?php } ?>

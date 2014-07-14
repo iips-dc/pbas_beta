@@ -13,7 +13,7 @@
 <title>Research Publication </title>
 <?php
 	include('cssLinks.php');
-	include('jsLinks.php');
+	//include('jsLinks.php');
 ?>
 <style type="text/css">
     /* Custom Styles */
@@ -34,6 +34,18 @@
         top: 30px; /* Set the top position of pinned element */
     }
 </style>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
+
+}
+</script>
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
@@ -88,17 +100,17 @@
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> <br/><br/>
 					   <div id="invitedFields">
 						   <label>Title of the Lecture / Academic Session</label>
-							<input class="form-control" type="text" name="ILC_TOL" required="required"/> 
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="ILC_TOL" required="required"/> 
 						   <label>Title Conference / Seminar etc.</label>
-							<input class="form-control" type="text" name="ILC_TCS" required="required"/> 
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="ILC_TCS" required="required"/> 
 							<label>Date (s) of the Event</label>
-							 <input class="form-control" type="text" name="ILC_DOE" required="required"/> 
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="ILC_DOE" required="required"/> 
 						   <label>Organized By</label>
-							 <input class="form-control" type="text" name="ILC_Organized" required="required"/> 
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="ILC_Organized" required="required"/> 
 						  <label> Whether International / National / State</label>
-							<input class="form-control" type="text" name="ILC_WINS" required="required"/> 
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="ILC_WINS" required="required"/> 
 						   <label>API Score</label>
-							 <input class="form-control" type="text" name="ILC_API" required="required"/> 
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="ILC_API" required="required"/> 
 						</div> <br />
 							<input class="btn btn-md btn-primary" type="submit" value="Save" name="ilc_save" />
 							<select name="il" onchange="showUser(this.value,this.name)">
@@ -122,6 +134,7 @@
 </div>
 <!--End Of container --> 
 <?php
+	      include('footer.php');
 	      include('jsLinks.php');
 		  }
 		  else{

@@ -13,7 +13,7 @@
 <title>Research Publication </title>
 <?php
 	include('cssLinks.php');
-	include('jsLinks.php');
+	//include('jsLinks.php');
 ?>
 <style type="text/css">
     /* Custom Styles */
@@ -34,6 +34,18 @@
         top: 30px; /* Set the top position of pinned element */
     }
 </style>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
+
+}
+</script>
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
@@ -88,14 +100,14 @@
 							<input class="btn btn-md btn-primary" type="reset" value="Reset" name="reset" /> <br/><br/>
 					  <div id="ongoingFields">
 							<label>Title</label>
-							  <input class="form-control" type="text" name="OPC_Title" required="required"/> 
+							  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="OPC_Title" required="required"/> 
 							<label>Agency</label>
-							  <input class="form-control" type="text" name="OPC_Agency" required="required"/> 
+							  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="OPC_Agency" required="required"/> 
 							<label>Period</label>
-							  <input class="form-control" type="text" name="OPC_Period" required="required"/> 
+							  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="OPC_Period" required="required"/> 
 							<label>Grant / Amount Mobilized (Rs. Lakh)</label>
-							  <input class="form-control" type="text" name="OPC_GAM" required="required"/> 
-						   <label>API Score</label>  <input class="form-control" type="text" name="OPC_API" required="required"/>
+							  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="OPC_GAM" required="required"/> 
+						   <label>API Score</label>  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="OPC_API" required="required"/>
 					  </div> <br />
 							<input class="btn btn-md btn-primary" type="submit" value="Save" name="opc_save" />
 							<select name="op" onchange="showUser(this.value,this.name)">
@@ -119,6 +131,7 @@
 </div>
 <!--End Of container --> 
 <?php
+	      include('footer.php');
 	      include('jsLinks.php');
 		  }
 		  else{

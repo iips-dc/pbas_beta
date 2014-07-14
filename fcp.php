@@ -13,7 +13,7 @@
 <title>Research Publication </title>
 <?php
 	include('cssLinks.php');
-	include('jsLinks.php');
+	//include('jsLinks.php');
 ?>
 <style type="text/css">
     /* Custom Styles */
@@ -34,6 +34,18 @@
         top: 30px; /* Set the top position of pinned element */
     }
 </style>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
+
+}
+</script>
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
@@ -44,7 +56,7 @@
    ?>
 <div class="container">
 	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-	<center><h3><b>Research Publication And Academic Contribution</b></h3></center>
+		<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
 	</div><!--end of box-shadow-->
     <div class="row-fluid">
     <br><br>
@@ -83,22 +95,22 @@
 									?><option><?php echo $row['Teach_FCP_TNO']; ?></option>
 							<?php } ?>
 						</select>
-						<input class="btn btn-md btn-primary" type="button" value="Delete" name="fcp_delete" /> 
+						<input class="btn btn-md btn-primary" type="submit" value="Delete" name="fcp_delete" /> 
 						<input type="reset" class="btn btn-primary" value="Reset" name="reset" /> <br/><br/>
 					  <div id="fullPapersConf">
 						<label> Title With Page Numbers</label>
-							<input class="form-control" type="text" name="FCP_TNO" required="required"/> 
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="FCP_TNO" required="required"/> 
 						<label>Details of Conference publications</label>  
-							<input class="form-control" type="text" name="FCP_BEP" required="required"/> 
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="FCP_BEP" required="required"/> 
 						<label>ISSN / ISBN No. </label>
-							<input class="form-control" type="text" name="FCP_ISSN" required="required"/> 
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="FCP_ISSN" required="required"/> 
 						<label>No. of Co-authors </label>
-							<input class="form-control" type="text" name="FCP_NOC" required="required"/> <br/>
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="FCP_NOC" required="required"/> <br/>
 						 <label> Whether you are the main Author</label>
 						 <input type="radio" name="FCP_YN" required="required"/>Yes <input type="radio" name="FCP_YN"/>No<br /> <br/>
 							
 						<label>API Score </label>
-							<input class="form-control" type="text" name="FCP_API" required="required"/> 
+							<input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="FCP_API" required="required"/> 
 					  </div>
 						<br><input class="btn btn-md btn-primary" type="submit" value="Save" name="fpcp_save" />
 						<select name="fp" onChange="showUser(this.value, this.name)">
@@ -109,7 +121,7 @@
 									?><option><?php echo $row['Teach_FCP_TNO']; ?></option>
 							<?php } ?>
 						</select>
-						<input class="btn btn-md btn-primary" type="button" value="Delete" name="fcp_delete" /> 
+						<input class="btn btn-md btn-primary" type="submit" value="Delete" name="fcp_delete"/> 
 						<input type="reset" class="btn btn-primary" value="Reset" name="reset" />
 					</form> 
 				</div><!--end of panel-->
@@ -122,6 +134,7 @@
 </div>
 <!--End Of container --> 
 <?php
+	      include('footer.php');
 	      include('jsLinks.php');
 		  }
 		  else{

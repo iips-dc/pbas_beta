@@ -13,7 +13,7 @@
 <title>Research Publication </title>
 <?php
 	include('cssLinks.php');
-	include('jsLinks.php');
+	//include('jsLinks.php');
 ?>
 <style type="text/css">
     /* Custom Styles */
@@ -34,6 +34,18 @@
         top: 30px; /* Set the top position of pinned element */
     }
 </style>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
+
+}
+</script>
 </head>
 <body data-spy="scroll" data-target="#myNav">
 <?php
@@ -90,20 +102,20 @@
 						<div class="form-group">
 							<div id="apb">
 								<label>Title With Page Numbers </label>
-								  <input type="text" class="form-control required" name="APB_TNO" required="required"/>
+								  <input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="APB_TNO" required="required"/>
 								<label>Book Title, Editor And Publisher </label>
-								  <input type="text" class="form-control" name="APB_BEP" required="required"/>
+								  <input type="text" class="form-control" onkeypress="return onlyAmpersand(event)" name="APB_BEP" required="required"/>
 								<label>ISSN / ISBN No.</label> 
-								   <input type="text" class="form-control" name="APB_ISSN" required="required"/>
+								   <input type="text" class="form-control" onkeypress="return onlyAmpersand(event)" name="APB_ISSN" required="required"/>
 								<label>Whether peer reviewed. Impact factor, if any</label>
-								  <input type="text" class="form-control" name="APB_WPR" required="required"/>
+								  <input type="text" class="form-control" onkeypress="return onlyAmpersand(event)" name="APB_WPR" required="required"/>
 								<label>No. of Co-authors </label>
-								   <input type="text" class="form-control" name="APB_NOC" required="required"/>
+								   <input type="text" class="form-control" onkeypress="return onlyAmpersand(event)" name="APB_NOC" required="required"/>
 								<label>Whether you are the main Author</label> 
 								  <input type="radio" value="Yes" name="ACPB_YN" required="required"/>Yes 
 								  <input type="radio" value="No" name="ACPB_YN" />No<br />
 								<label>API Score</label> 
-								<input type="text" class="form-control required" placeholder="API Score" name="APB_API" required="required"/><br />
+								<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" placeholder="API Score" name="APB_API" required="required"/><br />
 						</div>
 						<input class="btn btn-md btn-primary" type="submit" value="Save" name="acpb_save" />
 						<select name="apb" onChange="showUser(this.value, this.name)">
@@ -126,6 +138,7 @@
 </div>
 <!--End Of container --> 
 <?php
+	      include('footer.php');
 	      include('jsLinks.php');
 		  }
 		  else{

@@ -1,4 +1,3 @@
-
 <?php
 	if(isset($_POST['lectSave'])){
 		$user_id = $_SESSION['username'];
@@ -14,11 +13,11 @@
 		$teachingLoad = $_POST['teachingLoads'];
 		
 		//Query for Updating Lecture/Seminar Information
-		$sql1 = "SELECT * FROM teach_lstp where User_Id='$user_id' and year='$year' and Teach_LSTP_Course='$courseName'";
+		$sql1 = "SELECT * FROM teach_lstp WHERE User_Id='$user_id' AND Year='$year' AND Teach_LSTP_Course='$courseName'";
 		$result = mysqli_query($con, $sql1);
 		$row = mysqli_fetch_array($result);
 		if(!empty($row['User_Id']) and !empty($row['Teach_LSTP_Course'])){
-			$updateQuery = "UPDATE teach_lstp SET Teach_LSTP_Level='$level', Teach_LSTP_MOT='$modes', Teach_LSTP_NOCA='$clsAllocated', Teach_LSTP_NOCC='$clsConducted', Teach_LSTP_Practicals='$practicals', Teach_LSTP_CTDR='$clsPercent',Teach_LSTP_CTAPI='$clsTaken',Teach_LSTP_TLAPI='$teachingLoad' where User_Id='$user_id' and Teach_LSTP_Course='$courseName'" ;
+			$updateQuery = "UPDATE teach_lstp SET Teach_LSTP_Level='$level', Teach_LSTP_MOT='$modes', Teach_LSTP_NOCA='$clsAllocated', Teach_LSTP_NOCC='$clsConducted', Teach_LSTP_Practicals='$practicals', Teach_LSTP_CTDR='$clsPercent',Teach_LSTP_CTAPI='$clsTaken',Teach_LSTP_TLAPI='$teachingLoad' WHERE User_Id='$user_id' AND Teach_LSTP_Course='$courseName'" ;
 			$result1 = mysqli_query($con,$updateQuery);
 			if($result1){
 				header('location:teachingLearningActivities.php');
@@ -28,7 +27,16 @@
 			}
 		}
  		else{
-			$insertQuery = "Insert Into teach_lstp values('$user_id','$year','$courseName','$level','$modes','$clsAllocated','$clsConducted','$practicals','$clsPercent','$clsTaken','$teachingLoad')";
+ 			$courseName =str_replace('"', "“", $courseName);
+			$level =str_replace('"', "“", $level);
+			$modes =str_replace('"', "“", $modes);
+			$clsAllocated =str_replace('"', "“", $clsAllocated);
+			$clsConducted =str_replace('"', "“", $clsConducted);
+			$practicals =str_replace('"', "“", $practicals);
+			$clsPercent =str_replace('"', "“", $clsPercent);
+			$clsTaken =str_replace('"', "“", $clsTaken);
+			$teachingLoad =str_replace('"', "“", $teachingLoad);
+			$insertQuery = "INSERT INTO teach_lstp VALUES('$user_id','$year','$courseName','$level','$modes','$clsAllocated','$clsConducted','$practicals','$clsPercent','$clsTaken','$teachingLoad')";
 			$result2 = mysqli_query($con,$insertQuery);
 			if($result2){
 				header('location:teachingLearningActivities.php');
@@ -53,7 +61,7 @@
 		$clsTaken = $_POST['classTaken'];
 		$teachingLoad = $_POST['teachingLoads'];
 		$year=$_SESSION['pbasYear'];
-		$deleteQuery = "DELETE FROM teach_lstp WHERE User_Id='$user_id' AND year='$year' AND Teach_LSTP_Course='$courseName'";
+		$deleteQuery = "DELETE FROM teach_lstp WHERE User_Id='$user_id' AND Year='$year' AND Teach_LSTP_Course='$courseName'";
 		$result = mysqli_query($con,$deleteQuery);
 		if($result){
 			header('location:teachingLearningActivities.php');
@@ -86,6 +94,10 @@
 			}
 		}
  		else{
+ 			$readingCourse = str_replace('"', "“", $readingCourse);
+	    	$consulted = str_replace('"', "“", $consulted);
+			$prescribed = str_replace('"', "“", $prescribed);
+			$resources = str_replace('"', "“", $resources);
 			$insertQuery = "Insert Into teach_rimc values('$user_id','$year','$readingCourse','$consulted','$prescribed','$resources')";
 			$result2 = mysqli_query($con,$insertQuery);
 			if($result2){
@@ -137,6 +149,9 @@
 			}
 		}
  		else{
+ 			$description = str_replace('"', "“", $description);
+ 			$apiScore = str_replace('"',"“", $apiScore);
+	    	$apiScore = $_POST['api'];
 			$insertQuery = "Insert Into teach_tlm values('$user_id','$year','$description','$apiScore')";
 			$result2 = mysqli_query($con,$insertQuery);
 			if($result2){
@@ -189,6 +204,10 @@
 			}
 		}
  		else{
+			$type = str_replace('"', "“", $type);
+			$assigned = str_replace('"', "“", $assigned);
+			$extent = str_replace('"', "“", $extent);
+	    	$apiScore = str_replace('"', "“", $apiScore);
 			$insertQuery = "Insert Into teach_edap values('$user_id','$year','$type','$assigned','$extent','$apiScore')";
 			$result2 = mysqli_query($con,$insertQuery);
 			if($result2){

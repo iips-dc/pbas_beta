@@ -15,7 +15,18 @@
   		include('cssLinks.php');
   ?>
 </head>
+<script>
+function onlyAmpersand(event)				
+{
+    	var e =event; 
+   		var charCode = e.which || e.keyCode;
+    		if (charCode == 38)
+       			 return false;
+			else
+				 return true;
 
+}
+</script>
 <body>
 	<?php
 		if(isset($_SESSION['username']) and $_SESSION['pbasYear']){
@@ -46,13 +57,13 @@
 					</div><br>
 					<form role="form" name="development" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" id="developmentForm">
 						<input class="btn btn-primary" type="submit" value="Save" name="developmentSave" />
-						<select name="dev" onChange="showUser(this.value, this.name)">
+						<select name="dev" style="width:200px" onChange="showUser(this.value, this.name)">
 							<option>--Activity--</option>
 							<?php 
 								include('DBConnect.php');
 								$userId = $_SESSION['username'];
 								$year=$_SESSION['pbasYear'];
-								$query = mysqli_query($con,"SELECT * from Teach_PDA WHERE User_Id = '$userId' and year='$year'");
+								$query = mysqli_query($con,"SELECT * from teach_pda WHERE User_Id = '$userId' and year='$year'");
 								while($row = mysqli_fetch_assoc($query)){
 							?>		<option><?php echo $row['Teach_PDA_TOA']; ?></option>
 							<?php } ?>
@@ -62,21 +73,21 @@
 						<div class="form-group">
 						  <div id="dev"><br/>
 							<label>Type of Activity</label> 
-								<input type="text" class="form-control required" name="typeOfActivity" title="Please Enter Type of Activity" required="required"/>
+								<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="typeOfActivity" title="Please Enter Type of Activity" required="required"/>
 							<br><label>Yearly/Semester wise responsibility</label>
-								<input type="text" class="form-control required" name="responsibility" title="Please Enter The Responsibility" required="required"/>
+								<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="responsibility" title="Please Enter The Responsibility" required="required"/>
 							<br><label>API Score</label>
-								<input type="text" id="pd" class="form-control required" name="devApi" title="Please Enter API Score" required="required"/><br>
+								<input type="text" id="pd" class="form-control required" onkeypress="return onlyAmpersand(event)" name="devApi" title="Please Enter API Score" required="required"/><br>
 						 </div><!--End dev Id for Ajax -->
 						</div>
 					   <input class="btn btn-primary" type="submit" value="Save" name="developmentSave" />
-						<select name="dev" onChange="showUser(this.value, this.name)">
+						<select name="dev" style="width:200px" onChange="showUser(this.value, this.name)">
 							<option>--Activity--</option>
 							<?php 
 								include('DBConnect.php');
 								$userId = $_SESSION['username'];
 								$year=$_SESSION['pbasYear'];
-								$query = mysqli_query($con,"SELECT * from Teach_PDA WHERE User_Id = '$userId' and year='$year'");
+								$query = mysqli_query($con,"SELECT * from teach_pda WHERE User_Id = '$userId' and year='$year'");
 								while($row = mysqli_fetch_assoc($query)){
 							?>		<option><?php echo $row['Teach_PDA_TOA']; ?></option>
 							<?php } ?>
