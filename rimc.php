@@ -32,10 +32,11 @@ function onlyAmpersand(event)
 		if(isset($_SESSION['username']) and $_SESSION['pbasYear']){
 			echo '<div id="wrap">';
 			include('header.php');
+			$year=$_SESSION['pbasYear'];
      ?>
 	 	<div class="container" style="background-color:#FFFFFF;">
 	 		<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-				<center><h4><b>Teaching Learning And Evaluation Related Activities</b></h4></center>
+				<center><h4><b>Teaching Learning And Evaluation Related Activities <span class="text-danger"><?php echo $_SESSION['pbasYear']; ?></span></b></h4></center>
 			</div>
 	 		<div class="col-md-4" id="myNav">
         <br><br>
@@ -79,9 +80,9 @@ function onlyAmpersand(event)
 		          					<label>Course / Paper</label>
 				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="readingCourse" title="Please Enter Course Name" required="required"/>
                   					 <br><label>Consulted</label>
-				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="consulted" title="Please Enter value" required="required"/>
+				    					<input type="textarea" class="form-control required" onkeypress="return onlyAmpersand(event)" name="consulted" title="Please Enter value" required="required"/>
 		          					 <br><label>Prescribed</label>
-				    					<input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="prescribed" title="Please Fill this information" required="required"/>
+				    					<input type="textarea" class="form-control required" onkeypress="return onlyAmpersand(event)" name="prescribed" title="Please Fill this information" required="required"/>
 		   		  					 <br><label>Additional Resources Provided : </label>
 				    					Yes<input type="radio" name="addiResources" onclick="document.getElementById('disappear').disabled = false;" value="Yes"/>
 										No<input type="radio" name="addiResources" onclick="document.getElementById('disappear').disabled = true;" value="No"/>	

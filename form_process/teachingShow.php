@@ -30,23 +30,23 @@
 
 ?>
         <label>Course / Paper</label> 
-        		   <input type="text" class="form-control required" name="courseName" value="<?php echo $courseName; ?>"/>
+        		   <input type="textarea" class="form-control required" name="courseName" value="<?php echo $courseName; ?>"/>
          <br/><label>Level</label>
-				    <input type="text" class="form-control required" name="level" title="Please Enter The Level"value="<?php echo $level; ?>"/>
+				    <input type="textarea" class="form-control required" name="level" title="Please Enter The Level"value="<?php echo $level; ?>"/>
 		 <br /><label>Mode Of Teaching</label>
-				    <input type="text" class="form-control required" name="teachingModes" title="Please Enter Teaching Mode" value="<?php echo $modes; ?>"/>
+				    <input type="textarea" class="form-control required" name="teachingModes" title="Please Enter Teaching Mode" value="<?php echo $modes; ?>"/>
 		  <br /><label> No. of Classes/per Week Allocated</label>
-				    <input type="text" class="form-control required" name="classAllocated" title="Please Enter No. Of Class Allocated" value="<?php echo $clsAllocated; ?>"/>
+				    <input type="textarea" class="form-control required" name="classAllocated" title="Please Enter No. Of Class Allocated" value="<?php echo $clsAllocated; ?>"/>
 		  <br /><label>Total Number of Classes Conducted</label>
-				    <input type="text" class="form-control required" name="classConducted" title="Please Enter Total No. of Conducted Classes" value="<?php echo $clsConducted; ?>"/>
+				    <input type="textarea" class="form-control required" name="classConducted" title="Please Enter Total No. of Conducted Classes" value="<?php echo $clsConducted; ?>"/>
 		<br /><label>Practicals</label> 
-				    <input type="text" class="form-control required" name="practicals" title="Please Enter Practicles" value="<?php echo $practicals; ?>">
+				    <input type="textarea" class="form-control required" name="practicals" title="Please Enter Practicles" value="<?php echo $practicals; ?>">
         <br /><label>% of Classes Taken AS Per Documented Record</label>
-				   <input type="text" class="form-control required" name="classTakenRecord" title="Please Enter the % value" value="<?php echo $clsPercent; ?>"/>
+				   <input type="textarea" class="form-control required" name="classTakenRecord" title="Please Enter the % value" value="<?php echo $clsPercent; ?>"/>
 		<br /><label>Classes Taken (max 50 for 100% Performance and Proportionate Score upto 80% Performance, below which no Score may be given)</label>
-				  <input type="text" class="form-control required" name="classTaken" title="Please Enter Classes Taken" value="<?php echo $clsTaken; ?>"/>
+				  <input type="textarea" class="form-control required" name="classTaken" title="Please Enter Classes Taken" value="<?php echo $clsTaken; ?>"/>
 		 <br /><label>Teaching Load in Excess of UGC norm(max score : 10)</label>
-				  <input type="text" class="form-control required" name="teachingLoads" title="Please Enter Teaching Load" value="<?php echo $teachingLoad; ?>"/>
+				  <input type="textarea" class="form-control required" name="teachingLoads" title="Please Enter Teaching Load" value="<?php echo $teachingLoad; ?>"/>
 								
 	<?php   
 	    }#End of If condition
@@ -62,13 +62,13 @@
 	        <br /><label>Course / Paper</label>
 			  <input type="text" class="form-control required" name="readingCourse" value="<?php echo $courseName; ?>">
          <br><label>Consulted</label>
-			  <input type="text" class="form-control required" name="consulted" title="Please Enter value" value="<?php echo $consulted; ?>"/>
+			  <textarea class="form-control required" name="consulted" title="Please Enter value"><?php echo $consulted; ?></textarea>
 		  <br><label>Prescribed</label>
-			<input type="text" class="form-control required" name="prescribed" title="Please Fill this information" value="<?php echo $prescribed; ?>"/>
+			<textarea class="form-control required" name="prescribed" title="Please Fill this information"><?php echo $prescribed; ?></textarea>
 		  <br><label>Additional Resources Provided : </label>
-				 Yes<input type="radio" name="addiResources" onclick="document.getElementById('disappear').disabled = false;" value="Yes" />
+				 Yes<input type="radio" autofocus name="addiResources" onclick="document.getElementById('disappear').disabled = false;"  value="Yes" />
 				 No<input type="radio" name="addiResources" onclick="document.getElementById('disappear').disabled = true;" value="No"/>
-				 <input type="text" class="form-control required" name="resrc" title="Please Fill this information" id="disappear" value="<?php echo $resources; ?>"/>	
+				 <input type="textarea" class="form-control required" name="resrc" title="Please Fill this information" id="disappear" value="<?php echo $resources; ?>"/>	
 				 
      <?php
 	 	}#End of If condition of resources material
@@ -83,7 +83,7 @@
 
 	 ?>
 	        <br /><label>Short Description </label> 
-			    <input type="text" class="form-control required" name="description" value="<?php echo $description; ?>">
+			    <textarea class="form-control required" name="description"> <?php echo $description; ?></textarea>
             <br /><label>API Score</label>
 				<input type="text" class="form-control required" name="api" title="Please Enter API Score" value="<?php echo $apiScore; ?>"/>
 	 <?php
@@ -101,13 +101,13 @@
 
 	 ?>
 	        						<label>Type of Examination Duties</label> 
-				    					<input type="text" class="form-control required" name="typeDuties" value="<?php echo $dutyType; ?>">
+				    					<input type="textarea" class="form-control required" name="typeDuties" value="<?php echo $dutyType; ?>">
                   					<br><label>Duties Assigned</label>
-				    					<input type="text" class="form-control required" name="assignedDuties" title="Please Enter Assigned Duties" value="<?php echo $assignedDuties; ?>"/>
+				    					<input type="textarea" class="form-control required" name="assignedDuties" title="Please Enter Assigned Duties" value="<?php echo $assignedDuties; ?>"/>
 									<br><label>Extent to which carried out(%)</label> 
-				    					<input type="text" class="form-control required" name="extent" title="Please Enter % Value" value="<?php echo $carriedOut; ?>">
+				    					<input type="textarea" class="form-control required" name="extent" title="Please Enter % Value" value="<?php echo $carriedOut; ?>">
                   					<br><label>API Score</label>
-				    					<input type="text" class="form-control required" name="api" title="Please Enter API Score" value="<?php echo $apiScore; ?>"/>
+				    					<input type="textarea" class="form-control required" name="api" title="Please Enter API Score" value="<?php echo $apiScore; ?>"/>
 	<?php
 	   }
 	

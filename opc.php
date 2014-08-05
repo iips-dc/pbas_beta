@@ -56,7 +56,7 @@ function onlyAmpersand(event)
    ?>
 <div class="container">
 	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-	<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
+	<center><h4><b>Research Publication And Academic Contribution <span class="text-danger"><?php echo $_SESSION['pbasYear']; ?></span></b></h4></center>
 	</div><!--end of box-shadow-->
     <div class="row-fluid">
         <div class="col-md-4" id="myNav">
@@ -87,7 +87,7 @@ function onlyAmpersand(event)
 				</div><br>
 				  <form id="ongoingForm" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 					  <input class="btn btn-md btn-primary" type="submit" value="Save" name="opc_save" />
-							<select name="op" onchange="showUser(this.value,this.name)">
+							<select name="op" style="width: 220px" onchange="showUser(this.value,this.name)">
 								<option>--Title--</option>
 								<?php 
 									include('DBConnect.php');
@@ -110,7 +110,7 @@ function onlyAmpersand(event)
 						   <label>API Score</label>  <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="OPC_API" required="required"/>
 					  </div> <br />
 							<input class="btn btn-md btn-primary" type="submit" value="Save" name="opc_save" />
-							<select name="op" onchange="showUser(this.value,this.name)">
+							<select name="op" style="width: 220px" onchange="showUser(this.value,this.name)">
 								<option>--Title--</option>
 								<?php 
 									include('DBConnect.php');

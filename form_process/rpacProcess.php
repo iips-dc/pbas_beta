@@ -1,6 +1,6 @@
 
 <?php
-//DBConnect.php include the code for Database connectivity
+//DBConnect.php include the code for Database connectivity.
 include('DBConnect.php');
 $user = $_SESSION['username'];
 $year = $_SESSION['pbasYear'];

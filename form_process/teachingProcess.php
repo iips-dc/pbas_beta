@@ -169,8 +169,9 @@
 		$user_id = $_SESSION['username'];
 		$description = $_POST['description'];
 	    $apiScore = $_POST['api'];
-		
-		$deleteQuery = "Delete From teach_tlm where User_Id='$user_id' and Teach_TLM_SD='$description'";
+		$year=$_SESSION['pbasYear'];
+
+		$deleteQuery = "Delete From teach_tlm where User_Id='$user_id'and year='$year' and Teach_TLM_SD='$description'";
 		$result = mysqli_query($con,$deleteQuery);
 		if($result){
 			header('location:tlm.php');

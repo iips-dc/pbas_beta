@@ -57,7 +57,7 @@ function onlyAmpersand(event)
    ?>
 <div class="container">
 	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-		<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
+		<center><h4><b>Research Publication And Academic Contribution <span class="text-danger"><?php echo $_SESSION['pbasYear']; ?></span></b></h4></center>
 	</div><!--end of box-shadow-->
     <div class="row-fluid">
         <div class="col-md-4" id="myNav">
@@ -89,7 +89,7 @@ function onlyAmpersand(event)
 				  <form id="presentedForm" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 					   
 					   <input class="btn btn-md btn-primary" type="submit" value="Save" name="ppc_save" />
-							<select name="pc" onchange="showUser(this.value,this.name)">
+							<select name="pc" style="width: 220px" onchange="showUser(this.value,this.name)">
 								<option>--Title--</option>
 								<?php 
 									include('DBConnect.php');
@@ -106,7 +106,7 @@ function onlyAmpersand(event)
 						   <label>Title Conference / Seminar etc.</label> 
 							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="PPC_TCS" required="required"/>  
 						   <label>Date (s) of the Event </label>
-							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="PPC_DOE" required="required"/>  
+							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="PPC_DOE" required="required" placeholder="yy-mm-day"/>  
 						   <label>Organized By</label>
 							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="PPC_Organized" required="required"/>  
 						   <label>Whether International / National / State</label>
@@ -115,7 +115,7 @@ function onlyAmpersand(event)
 							 <input class="form-control" type="text" onkeypress="return onlyAmpersand(event)" name="PPC_API" required="required"/> 
 						</div><br />
 							<input class="btn btn-md btn-primary" type="submit" value="Save" name="ppc_save" />
-							<select name="pc" onchange="showUser(this.value,this.name)">
+							<select name="pc" style="width: 220px" onchange="showUser(this.value,this.name)">
 								<option>--Title--</option>
 								<?php 
 									include('DBConnect.php');

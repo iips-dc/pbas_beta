@@ -38,7 +38,7 @@
 			<br/><label>Whether you are the main Author</label>
 
 			  <!-- <input type="radio" name="PPIJ_YN" >Yes <input type="radio" name="PPIJ_YN">NO<br /> -->
-			  <?php if($PPIJ_YN == "yes"){
+			  <?php if($PPIJ_YN == "yes" || $PPIJ_YN == "Yes"){
 							?>
 				    		Yes<input type="radio" name="degree" id="optionsRadios1" value="yes" <?php echo "checked" ?>>
 						    No<input type="radio" name="degree" id="optionsRadios2" value="no"><br><br>
@@ -47,7 +47,7 @@
 							   else{ 
 							?>
 							   		Yes<input type="radio" name="degree" id="optionsRadios1" value="yes" >
-						    No<input type="radio" name="degree" id="optionsRadios2" value="no" <?php echo "checked" ?>><br><br>
+						    		No<input type="radio" name="degree" id="optionsRadios2" value="no" <?php echo "checked" ?>><br><br>
 							 <?php   }
 							?>
 
@@ -77,7 +77,7 @@
 								  <input type="text" class="form-control" name="APB_BEP"  value="<?php echo $APB_BEP; ?>"/>
 								<label>ISSN / ISBN No.</label> 
 								   <input type="text" class="form-control" name="APB_ISSN" value="<?php echo $APB_ISSN; ?>"/>
-								<label>Whether peer reviewed. IMpact factor, if any</label>
+								<label>Whether peer reviewed. Impact factor, if any</label>
 								  <input type="text" class="form-control" name="APB_WPR" value="<?php echo $APB_WPR; ?>"/>
 								<label>No. of Co-authors </label>
 								   <input type="text" class="form-control" name="APB_NOC" value="<?php echo $APB_NOC; ?>"/>
@@ -126,7 +126,7 @@
 							<input class="form-control" type="text" name="FCP_NOC" value=" <?php echo $FCP_NOC ?>"/> 
 						 <label> Whether you are the main Author</label>
 
-						 <?php if($FCP_MA == "yes"){
+						 <?php if($FCP_MA == "yes" || $FCP_MA == "Yes"){
 							?>
 				    		Yes<input type="radio" name="FCP_YN" id="optionsRadios1" value="yes" <?php echo "checked" ?>>
 						    No<input type="radio" name="FCP_YN" id="optionsRadios2" value="no"><br><br>

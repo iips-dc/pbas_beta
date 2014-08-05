@@ -36,7 +36,7 @@ function onlyAmpersand(event)
 	 	<div class="container" style="background-color:#FFFFFF;">
 
 	 	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-			<center><h4><b>Teaching Learning And Evaluation Related Activities</b></h4></center>
+			<center><h4><b>Teaching Learning And Evaluation Related Activities <span class="text-danger"><?php echo $_SESSION['pbasYear']; ?></span> </b></h4></center>
 		</div>
     	<div class="row-fluid">
 

@@ -4,7 +4,7 @@
 	if(!empty($_POST['username']) and !empty($_POST['password'])){
 		//If the user just tried to log in
 		$user = $_POST['username'];
-		$pass = md5($_POST['password']);
+		$pass = ($_POST['password']);
 		include('DBConnect.php');
 		$result = mysqli_query($con,"Select * from userinfo where User_Id ='".$user."' and Pwd = '".$pass."'");
 		$row = mysqli_fetch_array($result);

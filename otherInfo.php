@@ -21,6 +21,7 @@
 	if(isset($_SESSION['username'])){
 	    echo '<div id="wrap">';
 		include('header.php');
+		$year=$_SESSION['pbasYear'];
 ?>
    <div class="container">
 		<div class="row" style="margin-top:40px;">
@@ -30,7 +31,7 @@
 
 				<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
 					<center><h4><b>Please give details of any other credential, significant contribution, 
-                                        awards recieved etc., not mentioned earlier.</b></h4></center>
+                                        awards recieved etc., not mentioned earlier.<span class="text-danger"><?php echo $_SESSION['pbasYear']; ?></span></b></h4></center>
 				</div>	
 
 				<br/><br/>
@@ -51,11 +52,11 @@
 			   					 <div class="form-group">
 								   <div id="oth">
 		          					 <label>Details</label> 
-				    					<input type="text" class="form-control required" name="actDetails" title="Please Enter The Details" required="required"/><br>
+				    					<textarea type="text" class="form-control required" name="actDetails" title="Please Enter The Details" required="required"></textarea><br>
 			 					   </div>
 			 				     </div>
 							       <input class="btn btn-primary" type="submit" value="Save" name="otherSave" />
-									<select name="oth" onChange="showUser(this.value, this.name)">
+									<select name="oth" style="width: 220px" onChange="showUser(this.value, this.name)">
 										<option>--Activity--</option>
 										<?php 
 											include('DBConnect.php');
@@ -82,7 +83,7 @@
 			 					    </div>
 			 				     </div>
 							      <input class="btn btn-primary" type="submit" value="Save" name="enclosureSave" />
-									<select name="enc" onChange="showUser(this.value, this.name)">
+									<select name="enc" style="width: 220px" onChange="showUser(this.value, this.name)">
 										<option>--Activity--</option>
 										<?php 
 											include('DBConnect.php');

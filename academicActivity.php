@@ -39,12 +39,13 @@ document.getElementById('nametxt').disabled='Click on the Yes above';
 		if(isset($_SESSION['username']) and isset($_SESSION['pbasYear'])){
 		echo '<div id="wrap">';
 		include('header.php');
+		$year=$_SESSION['pbasYear'];
 	?>
 		<div class="container" style="background-color:#FFFFFF;">
 		<div class="row">
 			<div class="col-sm-12">
 		   		<div  style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" >
-			<h3 align="center" class="text-primary"> Academic Activity </h3>
+			<h3 align="center" class="text-primary"> Academic Activity <span class="text-danger"><?php echo $_SESSION['pbasYear']; ?></span> </h3>
 			</div></div></div>
 			<div class="row">
 				<div class="col-sm-1">

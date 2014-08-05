@@ -34,7 +34,7 @@ include('DBConnect.php');
 
 	  <div class="col-sm-9">
 	  	<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-		<center><h4><b>Summary of API Score</b></h4></center>
+		<center><h4><b>Summary of API Score <span class="text-danger"><?php echo $_SESSION['pbasYear']; ?></span></b></h4></center>
 		</div><br>
 		<div class="table-responsive">
 			<table class="table table-hover" border="1">

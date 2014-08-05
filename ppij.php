@@ -55,7 +55,7 @@ function onlyAmpersand(event)
 ?>
      <div class="container">
 		<div style="box-shadow:5px 5px 5px 5px #888888; padding:3px 3px 3px 3px;" class="text-primary">
-		<center><h4><b>Research Publication And Academic Contribution</b></h4></center>
+		<center><h4><b>Research Publication And Academic Contribution <span class="text-danger"><?php echo $_SESSION['pbasYear']; ?></span></b></h4></center>
 		</div><!--end of box-shadow-->
     	<div class="row-fluid">
            <div class="col-md-4" id="myNav">
@@ -86,7 +86,7 @@ function onlyAmpersand(event)
 					  <form role="form" name="ppij"  action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 						<br>
 						<input class="btn btn-primary" type="submit" value="Save" name="ppij_save" />
-						<select name="pp" onChange="showUser(this.value, this.name)">
+						<select name="pp" style="width: 220px" onChange="showUser(this.value, this.name)">
 							<option>--Title--</option>
 							<?php 
 								include('DBConnect.php');
@@ -112,13 +112,13 @@ function onlyAmpersand(event)
 								<label>No. of Co-authors</label>
 								  <input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="PPIJ_NCA" required="required"/>
 								<br/><label>Whether you are the main Author</label>
-								  <input type="radio" value="Yes" name="PPIJ_YN" autofocus required="required">Yes <input type="radio" value="No" name="PPIJ_YN">NO<br />
+								  <input type="radio" value="Yes" name="PPIJ_YN" autofocus required="required">Yes <input type="radio" value="No" name="PPIJ_YN">NO<br/>
 								<br/><label>API Score</label>
 								  <input type="text" class="form-control required" onkeypress="return onlyAmpersand(event)" name="PPIJ_API" required="required"/><br/>
 							</div>
 						
 						<input class="btn btn-primary" type="submit" value="Save" name="ppij_save" />
-						<select name="pp" onChange="showUser(this.value, this.name)">
+						<select name="pp" style="width: 220px" onChange="showUser(this.value, this.name)">
 							<option>--Title--</option>
 							<?php 
 								include('DBConnect.php');

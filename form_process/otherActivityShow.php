@@ -17,7 +17,7 @@
  		$details = $row['Details'];
 ?>
 	     <label>Details</label> 
-			<input type="text" class="form-control" name="actDetails" title="Please Enter The Details" value="<?php echo $details; ?>"><br>
+			<textarea  class="form-control" name="actDetails" title="Please Enter The Details"  ><?php echo $details; ?> </textarea><br>
 
 <?php
 	}# End of other Activity show.
@@ -29,7 +29,7 @@
  		$enclosures = $row['Enclosure'];
 ?>
         <label>Enclosures</label>
-		<input type="text" class="form-control" name="encDetails" title="Please Enter The Enclosures" value="<?php echo $enclosures; ?>"><br>
+		<textarea class="form-control" name="encDetails" title="Please Enter The Enclosures"><?php echo $enclosures; ?></textarea><br>
 		
 <?php
 	}
